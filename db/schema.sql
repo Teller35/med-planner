@@ -1,0 +1,5 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS med_planner_db;
+
+-- CREATE DATABASE
+CREATE DATABASE ecommerce_db;
