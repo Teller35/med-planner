@@ -3,10 +3,10 @@ const router = require('express').Router();
 
 // require routes
 const caregiverRoutes = require('./caregiver-routes');
-const userRoutes = require('./user-routes');
+const patientRouts = require('./patient-routes');
 
 // assign routes
-router.use('/users', userRoutes);
+router.use('/patients', patientRouts);
 router.use('/caregivers', caregiverRoutes);
 
 // export all router routes
