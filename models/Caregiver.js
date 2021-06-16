@@ -4,7 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class Caregiver extends Model {
     checkPassword(loginPassW) {
-        return bcrypt.commpareSync(loginPassW, this.password);
+        return bcrypt.compareSync(loginPassW, this.password);
     }
 }
 
