@@ -9,52 +9,77 @@ class Patient extends Model {
 }
 
 //may need to be updated with seeds
-Patient.init (
-{
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-        isEmail: true
-            }
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-        len: [8]
-            }
-    }
-},
-{
-    hooks: {
-        async beforeCreate(newPatientData) {
-            newPatientData.password = await bcrypt.hash(newPatientData.password, 10);
-            return newPatientData;
+Patient.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
         },
-        
-        async beforeCreate(updatedPatientData) {
-            updatedPatientData.password - await bcrypt.hash(updatedPatientData.password, 10);
-            return updatedPatientData;
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        birthdate: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
+        },
+        // allergies: {
+        //     type: DataTypes.ARRAY(DataTypes.STRING),
+        //     allowNull: false,
+        // },
+        contact_preference: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [8]
+            }
         }
     },
+    {
+        hooks: {
+            async beforeCreate(newPatientData) {
+                newPatientData.password = await bcrypt.hash(newPatientData.password, 10);
+                return newPatientData;
+            },
+            
+            async beforeCreate(updatedPatientData) {
+                updatedPatientData.password - await bcrypt.hash(updatedPatientData.password, 10);
+                return updatedPatientData;
+            }
+        },
 
-    sequelize,
+        sequelize,
         timestamps: false,
         freezeTableName: true,
+        underscored: true,
         modelName: 'patient'
-}
+    }
 );
 
 module.exports = Patient;
