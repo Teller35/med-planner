@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // require models
-// const { User, Caregiver } = require('../../models');
+const { Patient, Caregiver } = require('../../models');
 
 // route to get all caregivers
 router.get('/', (req, res) => {
