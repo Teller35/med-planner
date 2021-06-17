@@ -1,9 +1,18 @@
 const Caregiver = require('./Caregiver');
 const Patient = require('./Patient');
+const Days = require('./Days');
+const Hours = require('./Hours');
 
+// Hours belong to Days
+Hours.belongsTo(Days, { through: Hours, foreignKey: 'day'});
 
+// Caregiver has many Days
+
+// Days has many Caregivers
 
 module.exports = {
     Caregiver,
-    Patient
+    Patient,
+    Days,
+    Hours
 }
