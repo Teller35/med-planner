@@ -1,3 +1,26 @@
+<header class="row p-3 border-bottom border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+    {{#if loggedIn}}
+      <a href="/dashboard">
+        Dashboard
+      </a>
+    {{else}}
+      <a class="btn" href="/">
+        Sign In
+      </a>
+      <a class="btn" href="/provider">
+        Caregiver
+      </a>
+    {{/if}}
+  </nav>
+</header>
+
+
 <div>
 <h2 class="p-3 text-center">Sign up with us today!</h2>
 
@@ -31,7 +54,7 @@
     </div>
   </div>
   <div class="col-12">
-    <button class="btn" type="submit">Submit</button>
+    <button class="btn" type="submit">Sign Up</button>
   </div>
 </form>
 

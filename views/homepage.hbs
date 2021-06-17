@@ -1,3 +1,26 @@
+<header class="row p-3 border-bottom border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+    {{#if loggedIn}}
+      <a href="/dashboard">
+        Dashboard
+      </a>
+    {{else}}
+      <a class="btn" href="/signup">
+        Sign Up
+      </a>
+      <a class="btn" href="/provider">
+        Caregiver
+      </a>
+    {{/if}}
+  </nav>
+</header>
+
+
 <section class="p-3">
   <p class="fs-4">
     Welcome to the med planner. Your one stop for setting up what you need with the right physicians. Here you can find your primary

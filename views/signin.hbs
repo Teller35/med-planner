@@ -1,3 +1,22 @@
+<header class="row p-3 border-bottom border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+    {{#if loggedIn}}
+      <a href="/dashboard">
+        Dashboard
+      </a>
+    {{else}}
+      <a class="btn" href="/">
+        Home
+      </a>
+    {{/if}}
+  </nav>
+</header>
+
 <section class="p-3">
     <h2 class="text-center">Caregiver please SignIn below.</h2>
 </section>
