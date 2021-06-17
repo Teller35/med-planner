@@ -8,8 +8,9 @@ const patientData = [
         address: '10880 Malibu Point, Los Angeles, CA 90265',
         phone: '203-555-0198',
         email: 'mr_stark@starkindustries.com',
-        allergies: ['gold'],
-        contact_preference: 'email'
+        // allergies: ['gold'],
+        contact_preference: 'email',
+        password: 'password1234'
     },
     {
         first_name: 'Peter',
@@ -18,8 +19,9 @@ const patientData = [
         address: '20 Ingram Street, Flushing, NY 11375',
         phone: '202-555-0121',
         email: 'petepark2001@gmail.com',
-        allergies: ['peppermint'],
-        contact_preference: 'text'
+        // allergies: ['peppermint'],
+        contact_preference: 'text',
+        password: 'password1234'
     },
     {
         first_name: 'Bruce',
@@ -28,8 +30,9 @@ const patientData = [
         address: '3033 Round Table Drive, West Chester, OH 45069',
         phone: '201-852-4472',
         email: 'b.banner@yahoo.com',
-        allergies: ['NSAIDs'],
-        contact_preference: 'phone'
+        // allergies: ['NSAIDs'],
+        contact_preference: 'phone',
+        password: 'password1234'
     },
     {
         first_name: 'Wanda',
@@ -38,8 +41,9 @@ const patientData = [
         address: '101 12th Street, Westview, NJ 07305',
         phone: '301-623-0752',
         email: 'wandamax1moff@gmail.com',
-        allergies: ['asperin','ibuprofen'],
-        contact_preference: 'email'
+        // allergies: ['asperin','ibuprofen'],
+        contact_preference: 'email',
+        password: 'password1234'
     },
     {
         first_name: 'Carol',
@@ -48,8 +52,9 @@ const patientData = [
         address: '98 Manchester Ave, South Ozone Park, NY 11420',
         phone: '301-826-0032',
         email: 'caroldanvers45@hotmail.com',
-        allergies: ['penicillin'],
-        contact_preference: 'text'
+        // allergies: ['penicillin'],
+        contact_preference: 'text',
+        password: 'password1234'
     }
 ];
 

@@ -22,6 +22,6 @@ app.engine('hbs', exphbs({ extname: 'hbs'}));
 app.set('view engine', 'hbs');
 
 // initialize and sync the server
-// sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`App now listening on port ${PORT}`));
-// });
+});
