@@ -54,7 +54,7 @@ const caregiverData = [
         address: '30 Prospect Street, Plainsboro, NJ 08512',
         fax: '634-001-3002',
         email: 'princetonplansborojwilson@med.com',
-        password: 'password1234'
+        password: 'password1234',
     }
 ];
 
