@@ -19,29 +19,47 @@
 </header>
 <section>
   <h2 class="p-3 text-center">Welcome to you dashboard</h2>
-
 </section>
 
 <section>
+  {{#each patients as |patient|}}
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-5">
        <div class="card" style="width: 30rem;">
   <div class="card-header fs-3">
-    {{ patient.last_name }}, {{ patient.first_name }} 
+    {{ last_name }}, {{ first_name }} 
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">Birthdate: {{ patient.birthdate}}</li>
-    <li class="list-group-item fs-5">Address: {{ patient.address }}</li>
-    <li class="list-group-item fs-5">Phone: {{ patient.phone }}</li>
-    <li class="list-group-item fs-5">Email: {{ patient.email }}</li>
-    <li class="list-group-item fs-5">Prefer Contact: {{ patient.contact_preference }}</li>
+    <li class="list-group-item fs-5">Birthdate: {{ birthdate}}</li>
+    <li class="list-group-item fs-5">Address: {{ address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
+    <li class="list-group-item fs-5">Email: {{ email }}</li>
+    <li class="list-group-item fs-5">Prefer Contact: {{ contact_preference }}</li>
   </ul>
   <button type="submit" class="btn">Edit</button>
 </div>
 </div>
+{{/each}}
 </section>
+
    
 <section>
   {{!-- appointment calender will go here --}}
 </section>
+
+{{#if caregivers.length}}
+<section>
+  {{#each caregivers as |caregiver|}}
+  <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> Dr. {{ caregiver.last_name }}</li>
+    <li class="list-group-item">{{ caregiver.specialty }}</li>
+    <li class="list-group-item">{{ caregiver.practice_name }}</li>
+    <li class="list-group-item">{{ caregiver.address }}</li>
+    <li class="list-group-item">{{ caregiver.phone }}</li>
+  </ul>
+</div>
+{{/each}}
+</section>
+{{/if}}

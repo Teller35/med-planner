@@ -2,28 +2,19 @@ const router = require("express").Router();
 const { Caregiver, Patient } = require("../models");
 
 router.get("/", (req, res) => {
-  Patient.findOne({
+  Patient.findAll({
     where: {
-        id: 1
+        id: 2
     //   patient_id: req.session.patient_id
     },
-    attributes: [
-        'id',
-      'first_name',
-      'last_name',
-      'birthdate',
-      'address',
-      'phone',
-      'email',
-      // 'allergies',
-      'contact_preference'
-    ],
+    attributes: { exclude: ['password']}
+    
   })
   .then(dbPatientData => {
       if (dbPatientData) {
-          const patient = dbPatientData.get({ plain: true });
+          const patients = dbPatientData.map(patient => patient.get({ plain: true }));
           res.render('dashboard-pat', {
-              patient,
+              patients,
             //   loggedIn: true
           })
       }
@@ -31,11 +22,12 @@ router.get("/", (req, res) => {
           res.status(404).end();
       }
   })
-    
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 });
+
+
 
 module.exports = router;

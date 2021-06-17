@@ -5,15 +5,15 @@
     </a>
   </h1>
   <nav class="col-2">
-    {{#if loggedIn}}
-      <a href="/dashboard">
+    {{!-- {{#if loggedIn}} --}}
+      <a class="btn" href="/dashboard">
         Dashboard
       </a>
-    {{else}}
+    {{!-- {{else}} --}}
       <a class="btn" href="/">
         Home
       </a>
-    {{/if}}
+    {{!-- {{/if}} --}}
   </nav>
 </header>
 
@@ -53,5 +53,5 @@
 </div>
  
  <div class="p-3">
- <h2 class="text-center">If not a member please call 1(800)456-7890 to get signed up today!</h2>
+ <h2 class="text-center text-dark">If not a member please call 1(800)456-7890 to get signed up today!</h2>
  </div>
