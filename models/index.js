@@ -4,7 +4,6 @@ const Days = require('./Days');
 const Hours = require('./Hours');
 
 // Hours belong to Days
-Hours.belongsTo(Days, { through: Hours, foreignKey: 'day'});
 
 // Caregiver has many Days
 

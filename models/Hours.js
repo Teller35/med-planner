@@ -1,7 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
-const { Caregiver, Patient, Days } = require('./index.js');
+const Caregiver = require('./Caregiver');
+const Days = require('./Days');
+const Patient = require('./Patient');
 
 class Hours extends Model {
     checkPassword(loginPassW) {
