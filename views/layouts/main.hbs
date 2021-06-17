@@ -15,10 +15,10 @@
 <body>
     <div class="container">
         <header class=" row p-3 border-bottom border-5">
-            <h1 class="col-8">
+            <h1 class="col-10">
                 <a href="/">Med Planner</a>
             </h1>
-            <nav class="col-4">
+            <nav class="col-2">
                 {{#if loggedIn}}
                 <a href="/dashboard">Dashboard</a>
                 {{else}}
@@ -28,8 +28,10 @@
             </nav>
         </header>
 
-        <main>
+        <main class="container">
+            <div class="row">
             {{{ body }}}
+            </div>
         </main>
 
         <footer class="fs-5">
