@@ -11,5 +11,6 @@ module.exports = {
     Caregiver,
     Patient,
     Days,
-    Hours
+    Hours,
+    Appointments
 }
