@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/css/secondary.css">
+
+<header class="row p-3 border-bottom border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+    {{!-- {{#if loggedIn}} --}}
+      <a class="btn" href="/dashboard-pat">
+        Home
+      </a>
+      <a class="btn" href="/logout">
+        Logout
+      </a>
+    {{!-- {{/if}} --}}
+  </nav>
+</header>
+<section>
+  <h2 class="p-3 text-center">Welcome to you dashboard</h2>
+
+</section>
+
+<section>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-5">
+       <div class="card" style="width: 30rem;">
+  <div class="card-header fs-3">
+    {{ patient.last_name }}, {{ patient.first_name }} 
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item fs-5">Birthdate: {{ patient.birthdate}}</li>
+    <li class="list-group-item fs-5">Address: {{ patient.address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ patient.phone }}</li>
+    <li class="list-group-item fs-5">Email: {{ patient.email }}</li>
+    <li class="list-group-item fs-5">Prefer Contact: {{ patient.contact_preference }}</li>
+  </ul>
+  <button type="submit" class="btn">Edit</button>
+</div>
+</div>
+</section>
+   
+<section>
+  {{!-- appointment calender will go here --}}
+</section>
