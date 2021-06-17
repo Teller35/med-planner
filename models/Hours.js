@@ -1,9 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
-const Caregiver = require('./Caregiver');
-const Days = require('./Days');
-const Patient = require('./Patient');
 
 class Hours extends Model {
     checkPassword(loginPassW) {
@@ -13,33 +10,29 @@ class Hours extends Model {
 
 Hours.init (
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
         hour: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            primaryKey: true
         },
         day: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Days,
+                model: 'days',
                 key: 'id'
             }
         },
         is_available: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: true
         },
         caregiver_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: Caregiver,
+                model: 'caregiver',
                 key: 'id'
             }
         },
@@ -47,7 +40,7 @@ Hours.init (
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: Patient,
+                model: 'patient',
                 key: 'id'
             }
         }

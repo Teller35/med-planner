@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
-const Caregiver = require('./Caregiver');
 
 class Days extends Model {
     checkPassword(loginPassW) {
@@ -11,15 +10,10 @@ class Days extends Model {
 
 Days.init (
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
         date: {
             type: DataTypes.DATEONLY,
             allowNull: false,
+            primaryKey: true
         },
         day_of_week: {
             type: DataTypes.STRING,
@@ -29,7 +23,7 @@ Days.init (
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
-                model: Caregiver,
+                model: 'caregiver',
                 key: 'id'
             }
         }
