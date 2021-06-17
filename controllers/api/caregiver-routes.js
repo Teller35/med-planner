@@ -7,7 +7,7 @@ const { Patient, Caregiver } = require('../../models');
 // route to get all caregivers
 router.get('/', (req, res) => {
     Caregiver.findAll({
-        // attributes: { exclude: ['password']}
+        attributes: { exclude: ['password']}
     }).then(dbCaregiverData => res.json(dbCaregiverData)
     ).catch(err => {
         console.log(err);
@@ -47,10 +47,13 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     }).then(dbCaregiverData => {
-        if (!dbCaregiverData) {
-            return;
-        }
-        res.json({ message: 'Caregiver created successfully.'});
+        req.session.save(() => {
+            req.session.caregiver_id = dbCaregiverData.id;
+            req.session.email = dbCaregiverData.email;
+            req.session.loggedIn = true;
+
+            res.json({ message: 'Caregiver created successfully.'});
+        });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -74,14 +77,25 @@ router.post('/login', (req, res) => {
             return;
         }
 
-        res.json({ patient: dbCaregiverData, message: 'You are now logged in!' });
+        req.session.save(() => {
+            req.session.caregiver_id = dbCaregiverData.id;
+            req.session.email = dbCaregiverData.email;
+            req.session.loggedIn = true;
 
+            res.json({ patient: dbCaregiverData, message: 'You are now logged in!' });
+        });
     });
 });
 
 // POST for caregiver logout
 router.post('/logout', (req, res) => {
-
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 // route to update a caregiver

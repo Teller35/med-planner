@@ -47,10 +47,12 @@ router.post('/', (req, res) => {
         contact_preference: req.body.contact_preference,
         password: req.body.password
     }).then(dbPatientData => {
-        if (!dbPatientData) {
-            return;
-        }
-        res.json({ message: 'Patient created successfully.'});
+        req.session.save(() => {
+            req.session.email = dbPatientData.email;
+            req.session.loggedIn = true;
+    
+            res.json({ message: 'Patient created successfully.'});
+        });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -74,14 +76,25 @@ router.post('/login', (req, res) => {
             return;
         }
 
-        res.json({ patient: dbPatientData, message: 'You are now logged in!' });
+        req.session.save(() => {
+            req.session.email = dbPatientData.email;
+            req.session.loggedIn = true;
+
+            res.json({ patient: dbPatientData, message: 'You are now logged in!' });
+        });
 
     });
 });
 
 // POST for patient logout
 router.post('/logout', (req, res) => {
-    
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 // route to update a patient
