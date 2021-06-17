@@ -4,66 +4,133 @@ const router = require('express').Router();
 // require models
 const { Appointments, Caregiver, Days, Hours, Patient } = require('../../models');
 
-/* Routes Needed for Appointments
+// get all appointments assigned to caregiver
+router.get('/appointments/:id', (req, res) => {
+    Appointments.findAll({
+        where: {
+            caregiver: req.params.id,
+        }
+    }).then(dbAppointmentsData => {
+        if(!dbAppointmentsData) {
+            res.status(404).json({ message: 'No appointments were found with that caregiver id.'})
+            return;
+        }
+        res.json(dbAppointmentsData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-GET appointments
+// get all appointments assigned to patient
+router.get('/appointments/:id', (req, res) => {
+    Appointments.findAll({
+        where: {
+            patient: req.params.id,
+            is_available: false
+        }
+    }).then(dbAppointmentsData => {
+        if(!dbAppointmentsData) {
+            res.status(404).json({ message: 'No appointments were found with that patient id.'})
+            return;
+        }
+        res.json(dbAppointmentsData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-by caregiver id
-    - days
-        - show date
-        - show day of week
-    - hours
-        - show hour
-    - appointments
-        - show date
-        - show day of week
-        - show hour
-        - show if avaialble (gray out, do not show patient information)
-            - from here add an appointment
-            
-by patient id (require password)
-    - appointments
-        - show date
-        - show day of week
-        - show hour
-        - show caregiver
-            - from here udpate (put) an appointment day and/or hour
+// get all appointments assigned to caregiver
+router.get('/appointments/:id', (req, res) => {
+    Appointments.findAll({
+        where: {
+            caregiver: req.params.id,
+            is_available: false
+        }
+    }).then(dbAppointmentsData => {
+        if(!dbAppointmentsData) {
+            res.status(404).json({ message: 'No appointments were found with that caregiver id.'})
+            return;
+        }
+        res.json(dbAppointmentsData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-get a single appointment
-by patient id and appointment id (require password)
-    - appointment
-        - show date
-        - show day of week
-        - show hour
-        - show caregiver
+// get a single appointment
+router.post('/appointments/:id', (req, res) => {
+    Appointments.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(dbAppointmentsData => {
+        if(!dbAppointmentsData) {
+            res.status(404).json({ message: 'No appointment was found with that id.'});
+            return;
+        }
+        res.json(dbAppointmentsData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-POST (CREATE) an appointment
+// create a new appointment
+router.post('/appointments/', (req, res) => {
+    Appointment.create({
+        hour: req.body.hour,
+        is_available: false,
+        patient: req.body.patient,
+        caregiver: req.body.caregiver,
+    }).then(dbAppointmentsData => {
+        if (!dbAppointmentsData) {
+            return;
+        }
+        res.json({ message: 'Appointment created successfully.'});
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-by patient id (require password)
-    - appointments
-        - date
-        - day of week
-        - hour
-        - is_availble change to false
-        - caregiver_id
+// update an appointment
+router.put('/appointments/:id', (req, res) => {
+    Appointments.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    }).then(dbAppointmentsData => {
+        if (!dbAppointmentsData) {
+            res.status(404).json({ message: 'Appointment not found. Update unsuccessful.' });
+            return;
+        }
+        res.json({ message: 'Appointment information updated.' });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
-PUT (UPDATE) an appointment
-
-by patient id (require password)
-    - appointments
-        - date (update)
-        - day of week (update)
-        - hour (update)
-        - is_available: false does not change
-        - caregiver_id does not change
-
-DESTROY (DELETE)
-
-by patient id (require password)
-    - appointments 
-        - delete the appointment by id
-
-*/
+// delete an appointment
+router.delete('/appointments/:id', (req, res) => {
+    Appointments.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(dbAppointmentsData => {
+        if (!dbAppointmentsData) {
+            res.status(404).json({ message: 'Appointment not found. Delete unsuccessful.' });
+            return;
+        }
+        res.json({ message: 'Appointment deleted.' })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // export all router routes
 module.exports = router;

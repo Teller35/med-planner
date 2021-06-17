@@ -52,15 +52,16 @@ Caregiver.init (
             validate: {
                 isEmail: true
             }
-        // },
+        },
         // hours: {
         //     type: DataTypes.ARRAY,
-        //     allowNull: false,
+        //     allowNull: true,
         //     references: {
         //         model: 'hours',
         //         key: 'hour'
         //     }
         // },
+        // this may need to reference appointments instead of hours
         password: {
             type: DataTypes.STRING,
             allowNull: false,
