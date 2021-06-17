@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #c5d5c5;
-    --secondary-color: #f0f0f0;
-    --tertiary-color: #777778;
+    --primary-color: #70c770;
+    --secondary-color: #eed7d7;
+    --tertiary-color: #5e5e63;
 }
 
 * {
@@ -14,11 +14,9 @@
 body {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
-/* background-image: url(../images/different-doctors.jpg);
-background-size: 40%;
-background-repeat: no-repeat;
-background-position-y: center;
-background-position-x: center; */
+    /* background-image: url(/images/doctor-wardrobe.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 p {
@@ -40,4 +38,9 @@ color: var(--secondary-color);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 15px;
     background-color: var(--primary-color);
+}
+
+footer {
+    padding: 50px;
+    text-align: center;
 }
