@@ -20,6 +20,10 @@ body {
     background-attachment: fixed;
 }
 
+.form {
+    margin-left: 35%;
+}
+
 .round {
     border: 3px solid rgb(100, 60, 60);
     box-shadow: 0 0 10px rgba(100,60,60,0.5);
