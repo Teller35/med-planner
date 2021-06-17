@@ -15,33 +15,12 @@ Hours.init (
             allowNull: false,
             primaryKey: true
         },
-        day: {
-            type: DataTypes.INTEGER,
+        date: {
+            type: DataTypes.DATEONLY,
             allowNull: false,
             references: {
                 model: 'days',
-                key: 'id'
-            }
-        },
-        is_available: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: true
-        },
-        caregiver_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'caregiver',
-                key: 'id'
-            }
-        },
-        patient_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'patient',
-                key: 'id'
+                key: 'date'
             }
         }
     },

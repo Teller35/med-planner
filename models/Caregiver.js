@@ -53,6 +53,10 @@ Caregiver.init (
                 isEmail: true
             }
         },
+        hours: {
+            type: DataTypes.ARRAY,
+            allowNull: false
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,

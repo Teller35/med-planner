@@ -18,14 +18,6 @@ Days.init (
         day_of_week: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        caregiver_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'caregiver',
-                key: 'id'
-            }
         }
     },
     {

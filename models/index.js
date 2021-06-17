@@ -2,12 +2,10 @@ const Caregiver = require('./Caregiver');
 const Patient = require('./Patient');
 const Days = require('./Days');
 const Hours = require('./Hours');
+const Appointments = require('./Appointments');
 
-// Hours belong to Days
+// Associations here
 
-// Caregiver has many Days
-
-// Days has many Caregivers
 
 module.exports = {
     Caregiver,
