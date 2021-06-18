@@ -1,0 +1,55 @@
+:root {
+    --primary-color: #39eb48b0;
+    --secondary-color: #e0dbdb;
+    --tertiary-color: #5e5e63;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    background-image: url(/images/doctor-wardrobe.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.round {
+    border: 3px solid rgb(100, 60, 60);
+    box-shadow: 0 0 10px rgba(100,60,60,0.5);
+    border-radius: 20px;
+    background: var(--secondary-color);
+    background: rgba(235, 228, 228, 0.5);
+}
+
+p {
+    color: var(--primary-color);
+    font-weight: bolder;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover, .btn:hover {
+color: var(--secondary-color);
+}
+
+.btn {
+    border: 3px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 25px;
+    background-color: var(--primary-color);
+}
+
+footer {
+    padding: 50px;
+    text-align: center;
+}

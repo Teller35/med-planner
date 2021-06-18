@@ -9,7 +9,8 @@ const caregiverData = [
         phone: '201-345-1298',
         address: '12629 Riverside Drive, North Hollywood, Los Angeles, CA 91606',
         fax: '665-089-0081',
-        business_hours: 'M-F 9-5'
+        email: 'newsacredheartjdorian@med.com',
+        password: 'password1234'
     },
     {
         practice_name: 'New Sacred Heart Hospital',
@@ -19,7 +20,8 @@ const caregiverData = [
         phone: '201-987-0985',
         address: '12629 Riverside Drive, North Hollywood, Los Angeles, CA 91606',
         fax: '665-089-0083',
-        business_hours: 'M-F 9-5'
+        email: 'newsacredheartereid@med.com',
+        password: 'password1234'
     },
     {
         practice_name: 'New Sacred Heart Hospital',
@@ -29,7 +31,8 @@ const caregiverData = [
         phone: '201-264-6124',
         address: '12629 Riverside Drive, North Hollywood, Los Angeles, CA 91606',
         fax: '665-089-0082',
-        business_hours: 'M-F 9-5'
+        email: 'newsacredheartcturk@med.com',
+        password: 'password1234'
     },
     {
         practice_name: 'Princeton-Plainsboro Teaching Hospital',
@@ -39,7 +42,8 @@ const caregiverData = [
         phone: '201-452-0762',
         address: '30 Prospect Street, Plainsboro, NJ 08512',
         fax: '634-001-3000',
-        business_hours: 'M-F 9-5'
+        email: 'princetonplansboroghouse@med.com',
+        password: 'password1234'
     },
     {
         practice_name: 'Princeton-Plainsboro Teaching Hospital',
@@ -49,7 +53,8 @@ const caregiverData = [
         phone: '201-745-0254',
         address: '30 Prospect Street, Plainsboro, NJ 08512',
         fax: '634-001-3002',
-        business_hours: 'M-F 9-5'
+        email: 'princetonplansborojwilson@med.com',
+        password: 'password1234',
     }
 ];
 
