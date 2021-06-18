@@ -57,13 +57,13 @@ Caregiver.init (
         //     type: DataTypes.ARRAY,
         //     allowNull: false
         // },
-        // password: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         len: [8]
-        //     }
-        // }
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [8]
+            }
+        }
     },
     {
         hooks: {

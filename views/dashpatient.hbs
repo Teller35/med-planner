@@ -7,14 +7,12 @@
     </a>
   </h1>
   <nav class="col-2">
-    {{!-- {{#if loggedIn}} --}}
       <a class="btn" href="/dashpatient">
         Home
       </a>
       <a class="btn logout" href="/logout">
         Logout
       </a>
-    {{!-- {{/if}} --}}
   </nav>
 </header>
 <section>
@@ -37,7 +35,7 @@
     <li class="list-group-item fs-5">Email: {{ email }}</li>
     <li class="list-group-item fs-5">Prefer Contact: {{ contact_preference }}</li>
   </ul>
-  <button type="submit" class="btn">Edit</button>
+  <a class="btn" href='/dashpatient/edit/{{id}}'>Edit</a>
 </div>
 </div>
 {{/each}}
