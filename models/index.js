@@ -6,6 +6,7 @@ const Appointments = require('./Appointments');
 
 // Associations here
 
+
 module.exports = {
     Caregiver,
     Patient,

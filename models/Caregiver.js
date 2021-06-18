@@ -53,17 +53,17 @@ Caregiver.init (
                 isEmail: true
             }
         },
-        hours: {
-            type: DataTypes.ARRAY,
-            allowNull: false
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8]
-            }
-        }
+        // hours: {
+        //     type: DataTypes.ARRAY,
+        //     allowNull: false
+        // },
+        // password: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         len: [8]
+        //     }
+        // }
     },
     {
         hooks: {
