@@ -8,7 +8,7 @@
   </h1>
   <nav class="col-2">
     {{!-- {{#if loggedIn}} --}}
-      <a class="btn" href="/dashboard-pat">
+      <a class="btn" href="/dashpatient">
         Home
       </a>
       <a class="btn" href="/logout">
@@ -49,16 +49,24 @@
 </section>
 
 {{#if caregivers.length}}
-<section>
+<section class="card-group">
   {{#each caregivers as |caregiver|}}
-  <div class="card" style="width: 18rem;">
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col-3">
+       <div class="card" style="width: 25rem;">
+  <div class="card-header fs-3">
+    DR. {{last_name}}, {{first_name}}
+  </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"> Dr. {{ caregiver.last_name }}</li>
-    <li class="list-group-item">{{ caregiver.specialty }}</li>
-    <li class="list-group-item">{{ caregiver.practice_name }}</li>
-    <li class="list-group-item">{{ caregiver.address }}</li>
-    <li class="list-group-item">{{ caregiver.phone }}</li>
+    <li class="list-group-item fs-5">Birthdate: {{ specialty }}</li>
+    <li class="list-group-item fs-5">Practice: {{ practice_name }}</li>
+    <li class="list-group-item fs-5">Address: {{ address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
+    <li class="list-group-item fs-5">Email: {{ email }}</li>
   </ul>
+  <button type="submit" class="btn">Select</button>
+</div>
+</div>
 </div>
 {{/each}}
 </section>

@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/secondary.css">
+
+<header class="row p-3 border-bottom border-info border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+    {{!-- {{#if loggedIn}} --}}
+      <a class="btn" href="/dashcare">
+        Home
+      </a>
+      <a class="btn" href="/logout">
+        Logout
+      </a>
+    {{!-- {{/if}} --}}
+  </nav>
+</header>
+<section>
+  <h2 class="p-3 text-center">Welcome to you dashboard</h2>
+</section>
+
+{{#if patients.length}}
+<section class="card-group">
+  {{#each patients as |patient|}}
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col-3">
+       <div class="card" style="width: 25rem;">
+  <div class="card-header fs-3">
+    {{ last_name }}, {{ first_name }} 
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item fs-5">Birthdate: {{ birthdate}}</li>
+    <li class="list-group-item fs-5">Address: {{ address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
+    <li class="list-group-item fs-5">Email: {{ email }}</li>
+    <li class="list-group-item fs-5">Prefer Contact: {{ contact_preference }}</li>
+  </ul>
+  <button type="submit" class="btn">Select</button>
+</div>
+</div>
+</div>
+{{/each}}
+</section>
+{{/if}}

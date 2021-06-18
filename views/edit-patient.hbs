@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/secondary.css">
+
+<header class="row p-3 border-bottom border-info border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+      <a class="btn" href="/dashpatient">
+        Home
+      </a>
+      <a class="btn" href="/logout">
+        Logout
+      </a>
+  </nav>
+</header>
+<section>
+  <h2 class="p-3 text-center">Edit your personal information below</h2>
+</section>
+
+<section>
+<form class="row round p-3 g-3 text-center">
+    <div class="input-group">
+  <div class="col-md-4">
+  <span class="fs-4">First</span><input type="text" class="form-control round text-center" id="first_name" value="{{patient.first_name}}" required>
+  </div>
+  <div class="col-md-4">
+  <span class="fs-4">Last</span><input type="text" class="form-control round text-center" id="last_name" value="{{patient.last_name}}" required>
+  </div>
+  <div class="col-md-4">
+  <span class="fs-4">Birthdate</span><input type="text" class="form-control round text-center" id="birthdate" value="{{patient.birthdate}}" required>
+  </div>
+  <div class="col-md-4">
+  <span class="fs-4">Address</span><input type="text" class="form-control round text-center" id="address" value="{{patient.address}}" required>
+  </div>
+  <div class="col-md-4">
+  <span class="fs-4">Phone</span><input type="text" class="form-control round text-center" id="phone" value="{{patient.phone}}" required>
+  </div>
+  <div class="col-md-4">
+  <span class="fs-4">Preferred Contact</span><input type="text" class="form-control round text-center" id="contact_preference" value="{{patient.contact_preference}}" required>
+  </div>
+  <div class="col-12">
+    <button class="btn" type="submit">Update</button>
+    </div>
+  </div>
+</form>
+</section>
