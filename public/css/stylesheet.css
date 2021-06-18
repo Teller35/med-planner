@@ -32,6 +32,13 @@ body {
     background: rgba(235, 228, 228, 0.75);
 }
 
+.card-round {
+    border: 9px solid rgb(100, 60, 60);
+    box-shadow: 0 0 10px rgb(100 60 60 / 50%);
+    border-radius: 10px;
+    background: rgba(235, 228, 228, 0.75);
+}
+
 p {
     color: var(--primary-color);
     font-weight: bolder;

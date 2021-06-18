@@ -4,7 +4,7 @@ const { Caregiver, Patient } = require("../models");
 router.get("/", (req, res) => {
   Patient.findAll({
     where: {
-        id: 2
+        id: 3
     //   patient_id: req.session.patient_id
     },
     attributes: { exclude: ['password']},
