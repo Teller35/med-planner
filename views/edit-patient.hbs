@@ -10,7 +10,7 @@
       <a class="btn" href="/dashpatient">
         Home
       </a>
-      <a class="btn" href="/logout">
+      <a class="btn logout" href="/logout">
         Logout
       </a>
   </nav>
@@ -20,7 +20,7 @@
 </section>
 
 <section>
-<form class="row round p-3 g-3 text-center">
+<form class="row round p-3 g-3 text-center edit-patient">
     <div class="input-group">
   <div class="col-md-4">
   <span class="fs-4">First</span><input type="text" class="form-control round text-center" id="first_name" value="{{patient.first_name}}" required>
@@ -46,3 +46,6 @@
   </div>
 </form>
 </section>
+
+<script src="/javascript/edit-patient.js"></script>
+<script src="/javascript/logout.js"></script>
