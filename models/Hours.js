@@ -2,22 +2,26 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
 
-class Days extends Model {
+class Hours extends Model {
     checkPassword(loginPassW) {
         return bcrypt.compareSync(loginPassW, this.password);
     }
 }
 
-Days.init (
+Hours.init (
     {
-        date: {
-            type: DataTypes.DATEONLY,
+        hour: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true
         },
-        day_of_week: {
-            type: DataTypes.STRING,
-            allowNull: false
+        date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+            references: {
+                model: 'days',
+                key: 'date'
+            }
         }
     },
     {
@@ -26,10 +30,8 @@ Days.init (
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'days'
+        modelName: 'hours'
     }
 );
 
-module.exports = Days;
-
-
+module.exports = Hours;
