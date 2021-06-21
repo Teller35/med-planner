@@ -58,7 +58,7 @@ a {
 }
 
 a:hover, .btn:hover {
-color: var(--secondary-color);
+color: var(--tertiary-color);
 }
 
 .btn {
