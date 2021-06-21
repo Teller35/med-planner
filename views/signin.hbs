@@ -5,15 +5,12 @@
     </a>
   </h1>
   <nav class="col-2">
-    {{#if loggedIn}}
-      <a href="/dashboard">
-        Dashboard
-      </a>
-    {{else}}
       <a class="btn" href="/">
         Home
       </a>
-    {{/if}}
+      <a class="btn" href="/signup">
+        Sign-Up
+      </a>
   </nav>
 </header>
 
@@ -22,7 +19,7 @@
 </section>
 
 <div class="col-3 form">
-<form class="sign-in round p-4">
+<form class="signIn-caregiver round p-4">
   <div class="row mb-1">
     <h3>
       Caregiver Sign In
@@ -31,7 +28,7 @@
       <input
         type="email"
         class="form-control round"
-        id="email-signIn"
+        id="emailCare-signIn"
         placeholder="Email Address"
       />
     </div>
@@ -41,17 +38,19 @@
       <input
         type="password"
         class="form-control round"
-        id="password-signIn"
+        id="passwordCare-signIn"
         placeholder="Password"
       />
     </div>
   </div>
-  <button type="submit" class="btn sign-in">
+  <button type="submit" class="btn">
     Sign in
   </button>
 </form>
 </div>
  
  <div class="p-3">
- <h2 class="text-center">If not a member please call 1(800)456-7890 to get signed up today!</h2>
+ <h2 class="text-center text-dark">If not a member please call 1(800)456-7890 to get signed up today!</h2>
  </div>
+
+<script src="/javascript/login.js"></script>
