@@ -16,8 +16,11 @@
   </nav>
 </header>
 <section>
-  <h2 class="p-3 text-center">Welcome to you dashboard</h2>
+{{#each caregivers as |caregiver|}}
+  <h2 class="p-3 text-center">Welcome Dr. {{last_name}}, {{first_name}} <span><a class="btn" href='/dashcare/edit/{{id}}'>Edit</a></span></h2>
+  {{/each}}
 </section>
+
 
 {{#if patients.length}}
 <section class="card-group">
@@ -29,7 +32,7 @@
     {{ last_name }}, {{ first_name }}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Select</button></span> 
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">Birthdate: {{ birthdate}}</li>
+    <li class="list-group-item fs-5">Birthdate: {{ birthdate }}</li>
     <li class="list-group-item fs-5">Address: {{ address }}</li>
     <li class="list-group-item fs-5">Phone: {{ phone }}</li>
     <li class="list-group-item fs-5">Email: {{ email }}</li>
