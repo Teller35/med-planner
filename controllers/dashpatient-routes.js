@@ -32,7 +32,7 @@ router.get("/", (req, res) => {
     router.get('/edit/:id', (req, res) => {
       Patient.findOne({
         where: {
-          id: req.params.id
+          id: 3
       //   patient_id: req.session.patient_id
       },
       attributes: { exclude: ['password']},
