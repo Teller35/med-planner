@@ -16,30 +16,31 @@ Appointments.init (
             allowNull: false,
             autoIncrement: true
         },
-        hour: {
+        caregiver_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
-                model: 'hours',
-                key: 'hour'
+                model: 'caregiver',
+                key: 'id'
             }
         },
-        is_available: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true
-        },
-        patient: {
+        patient_id: {
             type: DataTypes.INTEGER,
-            allowNull: true,
             references: {
                 model: 'patient',
                 key: 'id'
             }
         },
-        caregiver: {
+        caregiver_sched_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'caregiver',
+                model: 'caregiverschedule',
+                key: 'id'
+            }
+        },
+        patient_sched_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'patientschedule',
                 key: 'id'
             }
         }
