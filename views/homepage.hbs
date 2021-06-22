@@ -1,35 +1,47 @@
-<section>
-  <p class="fs-4">
+<header class="row p-3 border-bottom border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+      <a class="btn" href="/signup">
+        Sign Up
+      </a>
+      <a class="btn" href="/signin">
+        Caregiver
+      </a>
+  </nav>
+</header>
+
+
+<section class="p-7">
+  <p class="fs-3 text-dark">
     Welcome to the med planner. Your one stop for setting up what you need with the right physicians. Here you can find your primary
         physician and specialist. You can make, change, or cancel your appointments. You can also use out appointment tracker to remind you
         of up coming appointments. Use the form below to sign up and just see how easy it all is.
   </p>
 </section>
-<form class="sign-in p-3">
+<div class="col-3 form">
+<form class="signIn-patient round p-4">
   <div class="row mb-1">
     <h3>
       Patient Sign In
     </h3>
-    <label for="email-signIn" class="col-sm-1 col-form-label size fs-5">
-      Email:
-    </label>
-    <div class="col-sm-2">
+    <div class="col-auto">
       <input
         type="email"
-        class="form-control"
+        class="form-control round"
         id="email-signIn"
         placeholder="Email Address"
       />
     </div>
   </div>
   <div class="row mb-1">
-    <label for="password-signIn" class="col-sm-1 col-form-label fs-5">
-      Password:
-    </label>
-    <div class="col-sm-2">
+    <div class="col-auto">
       <input
         type="password"
-        class="form-control"
+        class="form-control round"
         id="password-signIn"
         placeholder="Password"
       />
@@ -39,63 +51,6 @@
     Sign in
   </button>
 </form>
-<form class="sign-up p-3">
-  <div class="row mb-1">
-    <h3>
-      New Patient
-    </h3>
-    <label for="firstName-signUp" class="col-sm-1 col-form-label fs-5">
-      First:
-    </label>
-    <div class="col-sm-2">
-      <input
-        type="text"
-        class="form-control"
-        id="firstName-signUp"
-        placeholder="First Name"
-      />
-    </div>
-  </div>
-  <div class="row mb-1">
-    <label for="lastName-signUp" class="col-sm-1 col-form-label fs-5">
-      Last:
-    </label>
-    <div class="col-sm-2">
-      <input
-        type="text"
-        class="form-control"
-        id="lastName-signUp"
-        placeholder="Last Name"
-      />
-    </div>
-  </div>
-  <div class="row mb-1">
-    <label for="email-signUp" class="col-sm-1 col-form-label fs-5">
-      Email:
-    </label>
-    <div class="col-sm-2">
-      <input
-        type="email"
-        class="form-control"
-        id="email-signUp"
-        placeholder="Email Address"
-      />
-    </div>
-  </div>
-  <div class="row mb-1">
-    <label for="password-signUp" class="col-sm-1 col-form-label fs-5">
-      Password:
-    </label>
-    <div class="col-sm-2">
-      <input
-        type="password"
-        class="form-control"
-        id="password-signUp"
-        placeholder="Password"
-      />
-    </div>
-  </div>
-  <button type="submit" class="btn sign-up">
-    Sign Up
-  </button>
-</form>
+</div>
+
+<script src="/javascript/login.js"></script>
