@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #39eb48b0;
+    --primary-color: rgb(2, 167, 167);
     --secondary-color: #e0dbdb;
     --tertiary-color: #5e5e63;
 }
@@ -29,12 +29,27 @@ body {
     box-shadow: 0 0 10px rgba(100,60,60,0.5);
     border-radius: 20px;
     background: var(--secondary-color);
-    background: rgba(235, 228, 228, 0.5);
+    background: rgba(235, 228, 228, 0.75);
+}
+
+.card-round {
+    border: 9px solid rgb(100, 60, 60);
+    box-shadow: 0 0 10px rgb(100 60 60 / 50%);
+    border-radius: 10px;
+    background: rgba(235, 228, 228, 0.75);
 }
 
 p {
     color: var(--primary-color);
     font-weight: bolder;
+}
+
+.demo {
+    background-image: url(/images/calendar.jpg);
+    background-size: cover;
+    padding-left: 90%;
+    width: 500px;
+    height: 800px;
 }
 
 a {
@@ -43,7 +58,7 @@ a {
 }
 
 a:hover, .btn:hover {
-color: var(--secondary-color);
+color: var(--tertiary-color);
 }
 
 .btn {

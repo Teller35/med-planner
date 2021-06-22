@@ -8,7 +8,6 @@ class Caregiver extends Model {
     }
 }
 
-//may need to change based on seeds, basic outline
 Caregiver.init (
     {
         id: {
@@ -52,10 +51,6 @@ Caregiver.init (
             validate: {
                 isEmail: true
             }
-        },
-        hours: {
-            type: DataTypes.ARRAY,
-            allowNull: false
         },
         password: {
             type: DataTypes.STRING,

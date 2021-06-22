@@ -8,7 +8,6 @@ class Patient extends Model {
     }
 }
 
-//may need to be updated with seeds
 Patient.init(
     {
         id: {
