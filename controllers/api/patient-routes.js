@@ -25,11 +25,26 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Appointments,
-                attributes: ['id', 'caregiver_id', 'patient_id', 'appointment_time', 'caregiver_sched_id', 'patient_sched_id'],
+                attributes: [
+                    'id', 
+                    'caregiver_id', 
+                    'patient_id', 
+                    'appointment_time', 
+                    'caregiver_sched_id', 
+                    'patient_sched_id'
+                ],
                 include: [
                     {
                         model: Caregiver,
-                        attributes: []
+                        attributes: [
+                            'id', 
+                            'practice_name', 
+                            'first_name', 
+                            'last_name', 
+                            'specialty',
+                            'phone',
+                            'address',
+                        ]
                     }
                     
                 ]
