@@ -16,11 +16,11 @@ const seedAll = async () => {
     await seedCaregivers();
     console.log('\n----- CAREGIVERS SEEDED -----\n');
 
-    await seedPatientSchedule();
-    console.log('\n----- PATIENT SCHEDULE SEEDED -----\n');
-
     await seedCaregiverSchedule();
     console.log('\n----- CAREGIVER SCHEDULE SEEDED -----\n');
+
+    await seedPatientSchedule();
+    console.log('\n----- PATIENT SCHEDULE SEEDED -----\n');
 
     await seedAppointments();
     console.log('\n----- APPOINTMENTS SEEDED -----\n');

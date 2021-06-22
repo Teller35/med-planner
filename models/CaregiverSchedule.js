@@ -23,10 +23,10 @@ CaregiverSchedule.init (
             type: DataTypes.DATEONLY,
             allowNull: false
         },
-        start_time: {
+        start: {
             type: DataTypes.TIME
         },
-        end_time: {
+        end: {
             type: DataTypes.TIME
         }
     },
