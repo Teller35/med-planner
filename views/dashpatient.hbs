@@ -16,7 +16,9 @@
   </nav>
 </header>
 <section>
-  <h2 class="p-3 text-center">Welcome to you dashboard</h2>
+  {{#each patients as |patient|}}
+  <h2 class="p-3 text-center">Welcome {{last_name}}</h2>
+  {{/each}}
 </section>
 
 <section>
@@ -41,7 +43,7 @@
 </section>
 
    
-<section class="demo">
+<section>
   {{!-- appointment calender will go here --}}
 </section>
 
