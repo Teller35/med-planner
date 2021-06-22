@@ -5,6 +5,9 @@ const seedCaregiverSchedule = require('./caregiver-schedule-seeds');
 const seedAppointments = require('./appointments-seeds');
 
 const sequelize = require('../config/connection');
+const seedAppointments = require('./appointments-seeds');
+const seedHours = require('./hours-seeds');
+
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
@@ -24,7 +27,6 @@ const seedAll = async () => {
 
     await seedAppointments();
     console.log('\n----- APPOINTMENTS SEEDED -----\n');
-
 
     process.exit(0);
 };
