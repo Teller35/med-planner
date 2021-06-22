@@ -30,6 +30,9 @@ Appointments.init (
                 key: 'id'
             }
         },
+        appointment_time: {
+            type: DataTypes.TIME
+        },
         caregiver_sched_id: {
             type: DataTypes.INTEGER,
             references: {
