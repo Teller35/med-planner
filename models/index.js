@@ -28,6 +28,6 @@ Caregiver.hasMany(Appointments, {
 module.exports = {
     Caregiver,
     Patient,
-    Days,
-    Hours
+    // Days,
+    // Hours
 }
