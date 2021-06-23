@@ -15,34 +15,35 @@
       </a>
   </nav>
 </header>
-<section>
 {{#each caregivers as |caregiver|}}
-  <h2 class="p-3 text-center">Welcome Dr. {{last_name}}, {{first_name}} <span><a class="btn" href='/dashcare/edit/{{id}}'>Edit</a></span></h2>
-  {{/each}}
+<section>
+  <h2 class="p-3 text-center">Welcome Dr. {{last_name}}, {{first_name}}</h2>
 </section>
+{{/each}}
 
-
-{{#if patients.length}}
+{{#each caregivers}}
+  <h2 class="text-center">Appointments:</h2>
 <section class="card-group">
-  {{#each patients as |patient|}}
+{{#each appointments}}
   <div class="row row-cols-1 row-cols-md-3 p-1">
     <div class="col-3">
        <div class="card card-round p-1" style="width: 25rem;">
   <div class="card-header fs-3 position-relative">
-    {{ last_name }}, {{ first_name }}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Select</button></span> 
+   {{ appointment_time }}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Select</button></span> 
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">Birthdate: {{ birthdate }}</li>
-    <li class="list-group-item fs-5">Address: {{ address }}</li>
-    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
-    <li class="list-group-item fs-5">Email: {{ email }}</li>
-    <li class="list-group-item fs-5">Prefer Contact: {{ contact_preference }}</li>
+    <li class="list-group-item fs-5">{{ patient.last_name }}, {{patient.first_name}}</li>
+    <li class="list-group-item fs-5">Birthdate: {{ patient.birthdate }}</li>
+    {{!-- <li class="list-group-item fs-5">Address: {{ patient.address }}</li> --}}
+    {{!-- <li class="list-group-item fs-5">Phone: {{ patient.phone }}</li>
+    <li class="list-group-item fs-5">Email: {{ patient.email }}</li>
+    <li class="list-group-item fs-5">Contact Preference: {{ patient.contact_preference }}</li> --}}
   </ul>
 </div>
 </div>
 </div>
 {{/each}}
 </section>
-{{/if}}
+{{/each}}
 
-<script src="/javascript/logout.js"></script>
+<script src="/js/logout.js"></script>

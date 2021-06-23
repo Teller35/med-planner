@@ -16,8 +16,8 @@
   </nav>
 </header>
 <section>
-  {{#each patients as |patient|}}
-  <h2 class="p-3 text-center">Welcome {{last_name}}</h2>
+{{#each patients as |patient|}}
+  <h2 class="p-3 text-center">Welcome {{last_name}}, {{first_name}}</h2>
   {{/each}}
 </section>
 
@@ -32,9 +32,6 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">Birthdate: {{ birthdate}}</li>
-    <li class="list-group-item fs-5">Address: {{ address }}</li>
-    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
-    <li class="list-group-item fs-5">Email: {{ email }}</li>
     <li class="list-group-item fs-5">Prefer Contact: {{ contact_preference }}</li>
   </ul>
 </div>
@@ -42,33 +39,29 @@
 {{/each}}
 </section>
 
-   
-<section>
-  {{!-- appointment calender will go here --}}
-</section>
-
-{{#if caregivers.length}}
+{{#each patients}}
+  <h2 class="text-center">Appointments:</h2>
 <section class="card-group">
-  {{#each caregivers as |caregiver|}}
-  <div class="row row-cols-1 row-cols-md-3">
+{{#each appointments}}
+  <div class="row row-cols-1 row-cols-md-3 p-1">
     <div class="col-3">
-       <div class="card" style="width: 25rem;">
-  <div class="card-header fs-3">
-    DR. {{last_name}}, {{first_name}}
+       <div class="card card-round p-1" style="width: 25rem;">
+  <div class="card-header fs-3 position-relative">
+  {{ appointment_time }}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Select</button></span> 
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">Birthdate: {{ specialty }}</li>
-    <li class="list-group-item fs-5">Practice: {{ practice_name }}</li>
-    <li class="list-group-item fs-5">Address: {{ address }}</li>
-    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
-    <li class="list-group-item fs-5">Email: {{ email }}</li>
+    <li class="list-group-item fs-5">Dr. {{ caregiver.last_name }}, {{caregiver.first_name}}</li>
+    <li class="list-group-item fs-5">Specialty: {{ caregiver.specialty }}</li>
+    <li class="list-group-item fs-5">Address: {{ caregiver.address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ caregiver.phone }}</li>
+    <li class="list-group-item fs-5">Practice: {{ caregiver.practice_name }}</li>
   </ul>
-  <button type="submit" class="btn">Select</button>
 </div>
 </div>
 </div>
 {{/each}}
 </section>
-{{/if}}
+{{/each}}
 
-<script src="/javascript/logout.js"></script>
+
+<script src="/js/logout.js"></script>

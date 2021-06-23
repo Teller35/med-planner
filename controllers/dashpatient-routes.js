@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Caregiver, Patient } = require("../models");
+const { Caregiver, Patient, PatientSchedule, Appointments } = require("../models");
 
 router.get("/", (req, res) => {
   Patient.findAll({
@@ -8,6 +8,34 @@ router.get("/", (req, res) => {
     //   patient_id: req.session.patient_id
     },
     attributes: { exclude: ['password']},
+    include: [
+      {
+          model: Appointments,
+          attributes: [
+              'id', 
+              'caregiver_id', 
+              'patient_id', 
+              'appointment_time', 
+              'caregiver_sched_id', 
+              'patient_sched_id'
+          ],
+          include: [
+              {
+                  model: Caregiver,
+                  attributes: [
+                      'id', 
+                      'practice_name', 
+                      'first_name', 
+                      'last_name', 
+                      'specialty',
+                      'phone',
+                      'address',
+                  ]
+              }
+              
+          ]
+      }
+  ]
   })
   .then(dbPatientData => {
     if (dbPatientData) {
@@ -15,8 +43,8 @@ router.get("/", (req, res) => {
       res.render('dashpatient', {
             patients,
           // loggedIn: true
-        })
-        // res.json(patients)
+    })
+    // res.json(patients)
       }
       else {
         res.status(404).end();
