@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // require models
-const { Patient, Caregiver } = require('../../models');
+const { Appointments, Patient, Caregiver, CaregiverSchedule } = require('../../models');
 
 // route to get all caregivers
 router.get('/', (req, res) => {
@@ -21,7 +21,45 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
-        }
+        },        
+        include: [
+            {
+                model: CaregiverSchedule,
+                attributes: [
+                    'id',
+                    'caregiver_id',
+                    'date',
+                    'start',
+                    'end'
+                ]
+            },
+            {
+                model: Appointments,
+                attributes: [
+                    'id', 
+                    'caregiver_id', 
+                    'patient_id', 
+                    'appointment_time', 
+                    'caregiver_sched_id', 
+                    'patient_sched_id'
+                ],
+                include: [
+                    {
+                        model: Patient,
+                        attributes: [
+                            'id',
+                            'first_name',
+                            'last_name',
+                            'birthdate',
+                            'address',
+                            'phone',
+                            'email',
+                            'contact_preference'
+                        ]
+                    }   
+                ]
+            }
+        ]
     }).then(dbCaregiverData => {
         if (!dbCaregiverData) {
             res.status(404).json({ message: 'No caregiver data found with that id.' });
