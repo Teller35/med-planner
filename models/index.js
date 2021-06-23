@@ -38,7 +38,8 @@ PatientSchedule.hasMany(Appointments, {
 
 Appointments.belongsTo(PatientSchedule, {
     foreignKey: 'patient_schedule_id'
-})
+});
+
 
 module.exports = {
     Caregiver,
