@@ -5,7 +5,7 @@ const { Op } = require('sequelize');
 // require models
 const { CaregiverSchedule, Patient, Appointments, PatientSchedule, Caregiver } = require('../../models');
 
-// get caregiver schedule (available)
+// get caregiver schedule (available) **NOT READY**
 router.get('/:id', (req, res) => {    
     CaregiverSchedule.findAll({
         where: {
