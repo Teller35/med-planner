@@ -62,5 +62,11 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// create patient schedule
+
+// update patient schedule
+
+// delete patient schedule
+
 // export all router routes
 module.exports = router;
