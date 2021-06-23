@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // require models
-const { Patient, Caregiver } = require('../../models');
+const { Appointments, Caregiver, CaregiverSchedule, Patient, PatientSchedule } = require('../../models');
 
 // route to get all patient
 router.get('/', (req, res) => {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         }
-    }).then(dbPatientData => {
+        }).then(dbPatientData => {
         if (!dbPatientData) {
             res.status(404).json({ message: 'No patient data found with that id.' });
             return;

@@ -23,11 +23,11 @@ PatientSchedule.init (
             type: DataTypes.DATEONLY,
             allowNull: false
         },
-        start_time: {
-            type: DataTypes.INTEGER
+        start: {
+            type: DataTypes.TIME
         },
-        end_time: {
-            type: DataTypes.INTEGER
+        end: {
+            type: DataTypes.TIME
         }
     },
     {
