@@ -8,8 +8,7 @@ router.post('/', (req, res) => {
         caregiver_id: req.body.caregiver_id,
         patient_id: req.body.patient_id,
         appointment_time: req.body.appointment_time,
-        caregiver_sched_id: req.body.caregiver_sched_id,
-        patient_sched_id: req.body.patient_sched_id
+        date: req.body.date
     }).then(dbAppointmentData => res.status(201).json({ appointment: dbAppointmentData.id, message: 'Appointment created successfully.' })
     ).catch(err => {
         console.log(err);

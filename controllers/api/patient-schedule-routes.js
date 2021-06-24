@@ -7,9 +7,9 @@ const { CaregiverSchedule, Patient, Appointments, PatientSchedule, Caregiver } =
 
 // get patient schedule (all)
 router.get('/:id', (req, res) => {    
-    PatientSchedule.findAll({
+    Patient.findAll({
         where: {
-            patient_id: req.params.id
+            id: req.params.id
         },
         include: [
             {
@@ -18,33 +18,19 @@ router.get('/:id', (req, res) => {
                     'id', 
                     'caregiver_id', 
                     'patient_id', 
-                    'appointment_time', 
-                    'caregiver_sched_id', 
-                    'patient_sched_id'
+                    'appointment_time',
+                    'date' 
                 ],
                 include: [
                     {
-                        model: CaregiverSchedule,
+                        model: PatientSchedule,
                         attributes: [
                             'id',
-                            'caregiver_id',
+                            'patient_id',
                             'date',
                             'start',
                             'end'
                         ],
-                        include: [
-                            {
-                                model: Appointments,
-                                attributes: [
-                                    'id', 
-                                    'caregiver_id', 
-                                    'patient_id', 
-                                    'appointment_time', 
-                                    'caregiver_sched_id', 
-                                    'patient_sched_id'
-                                ]
-                            }
-                        ]
                     }
                 ]
             }

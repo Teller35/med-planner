@@ -3,6 +3,7 @@ const { Caregiver, Patient, CaregiverSchedule, Appointments } = require("../mode
 
 router.get('/', (req, res) => {
     Caregiver.findAll({
+      order: [["last_name", "ASC" ]],
         attributes: { exclude: ['password']},
     })
     .then(dbCaregiverData => {
