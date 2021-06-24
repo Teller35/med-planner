@@ -5,260 +5,223 @@ const appointmentData = [
         caregiver_id: '1',
         patient_id: '1',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '9',
-        patient_sched_id: '2'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '1',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '6',
-        patient_sched_id: '1'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '1',
         patient_id: '3',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '3',
-        patient_sched_id: '4'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '1',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '5',
-        patient_sched_id: '1'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '1',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '2',
-        patient_sched_id: '7'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '1',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '3',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '1',
         patient_id: '2',
         appointment_time: '10:00:00',
-        caregiver_sched_id: '1',
-        patient_sched_id: '1'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '2',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '6',
-        patient_sched_id: '2'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '2',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '2',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '2',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '9',
-        patient_sched_id: '1'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '2',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '4',
-        patient_sched_id: '3'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '2',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '6',
-        patient_sched_id: '7'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '2',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '3',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '1',
-        patient_sched_id: '6'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '3',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '9',
-        patient_sched_id: '4'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '4',
-        patient_sched_id: '9'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '2',
-        patient_sched_id: '7'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '4',
-        patient_sched_id: '4'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '5',
-        patient_sched_id: '7'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '1',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '3',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '2',
-        patient_sched_id: '2'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '1',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '1',
-        patient_sched_id: '9'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '2',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '3',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '3',
-        patient_sched_id: '7'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '4',
-        patient_sched_id: '6'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '5',
-        patient_sched_id: '6'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '1',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '6',
-        patient_sched_id: '7'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '7',
-        patient_sched_id: '8'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '3',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '8',
-        patient_sched_id: '9'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '4',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '9',
-        patient_sched_id: '1'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '4',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '2',
-        patient_sched_id: '2'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '5',
         patient_id: '1',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '3',
-        patient_sched_id: '9'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '5',
         patient_id: '2',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '1',
-        patient_sched_id: '4'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '5',
         patient_id: '3',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '9',
-        patient_sched_id: '4'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '5',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '5',
-        patient_sched_id: '2'
+        date: "2021-07-14"
     },
     {
         caregiver_id: '5',
         patient_id: '5',
         appointment_time: "09:00:00",
-        caregiver_sched_id: '8',
-        patient_sched_id: '6'
+        date: "2021-07-14"
     }
 ];
 

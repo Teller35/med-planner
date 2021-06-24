@@ -24,20 +24,20 @@ Appointments.belongsTo(Caregiver, {
 
 // caregiver schedule / appointments 
 CaregiverSchedule.hasMany(Appointments, {
-    foreignKey: 'caregiver_sched_id'
+    foreignKey: 'caregiver_id'
 });
 
 Appointments.belongsTo(CaregiverSchedule, {
-    foreignKey: 'caregiver_sched_id'
+    foreignKey: 'caregiver_id'
 });
 
 // patient schedule / appointments
 PatientSchedule.hasMany(Appointments, {
-    foreignKey: 'patient_sched_id'
+    foreignKey: 'patient_id'
 });
 
 Appointments.belongsTo(PatientSchedule, {
-    foreignKey: 'patient_sched_id'
+    foreignKey: 'patient_id'
 });
 
 // caregiver schedule / caregiver

@@ -15,9 +15,8 @@ router.get("/", (req, res) => {
               'id', 
               'caregiver_id', 
               'patient_id', 
-              'appointment_time', 
-              'caregiver_sched_id', 
-              'patient_sched_id'
+              'appointment_time',
+              'date'
           ],
           include: [
               {
