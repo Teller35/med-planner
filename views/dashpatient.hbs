@@ -1,19 +1,24 @@
 <link rel="stylesheet" href="/css/secondary.css">
 
 <header class="row p-3 border-bottom border-info border-5">
-  <h1 class="col-10">
+  <h1 class="col-8">
     <a href="/">
       Med Planner
     </a>
   </h1>
-  <nav class="col-2">
-      <a class="btn" href="/dashpatient">
-        Home
+  {{#each patients as |patient|}}
+  <nav class="col-4">
+      <a class="btn" href="/caregivers">
+        Search
+      </a>
+      <a class="btn" href="/dashpatient/edit/{{id}}">
+        My Account
       </a>
       <a class="btn logout" href="/logout">
         Logout
       </a>
   </nav>
+  {{/each}}
 </header>
 <section>
 {{#each patients as |patient|}}
@@ -21,14 +26,14 @@
   {{/each}}
 </section>
 
-<section>
+{{!-- <section>
   {{#each patients as |patient|}}
 <div class="container">
   <div class="row justify-content-md-center p-3">
     <div class="col col-lg-5">
        <div class="card card-round p-1" style="width: 30rem;">
   <div class="card-header fs-3 position-relative">
-    {{ last_name }}, {{ first_name }} <span class="position-absolute top-50 end-0 translate-middle-y"><a class="btn" href='/dashpatient/edit/{{id}}'>Edit</a></span> 
+    {{ last_name }}, {{ first_name }}<span class="position-absolute top-50 end-0 translate-middle-y"><a class="btn" href='/dashpatient/edit/{{id}}'>Edit</a></span> 
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">Birthdate: {{ birthdate}}</li>
@@ -37,7 +42,7 @@
 </div>
 </div>
 {{/each}}
-</section>
+</section> --}}
 
 {{#each patients}}
   <h2 class="text-center">Appointments:</h2>
@@ -47,7 +52,7 @@
     <div class="col-3">
        <div class="card card-round p-1" style="width: 25rem;">
   <div class="card-header fs-3 position-relative">
-  {{ appointment_time }}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Select</button></span> 
+  {{ appointment_time }}, {{date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Cancel</button></span> 
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">Dr. {{ caregiver.last_name }}, {{caregiver.first_name}}</li>
