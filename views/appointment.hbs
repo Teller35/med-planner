@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/secondary.css">
+
+<header class="row p-3 border-bottom border-info border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+      <a class="btn" href="/dashpatient">
+        Home
+      </a>
+      <a class="btn logout" href="/logout">
+        Logout
+      </a>
+  </nav>
+</header>
+
+<section class="p-3">
+   <a class="fs-2" href="/caregivers"> &larr; Back to Caregivers</a>
+</section>
+
+<section class="card-group">
+{{#each caregivers}}
+  <div class="row row-cols-1 row-cols-md-3 p-3">
+    <div class="col-3">
+       <div class="card card-round p-1" style="width: 45rem;">
+  <div class="card-header fs-3 position-relative">
+  Dr. {{ last_name }}, {{first_name}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item fs-5">Practice: {{practice_name}}</li>
+    <li class="list-group-item fs-5">Address: {{ address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ phone }}</li>
+    <li class="list-group-item fs-5">Fax: {{ fax }}</li>
+    <li class="list-group-item fs-5">Email: {{ email }}</li>
+  </ul>
+</div>
+</div>
+</div>
+{{/each}}
+</section>
+
+ 
+{{#each caregivers}}
+  <h2 class="text-center p-3">Schedules:</h2>
+<section class="card-group">
+{{#each caregiverschedules}}
+  <div class="row row-cols-1 row-cols-md-3 p-1">
+    <div class="col-3">
+       <div class="card card-round p-1" style="width: 15rem;">
+  <div class="card-header fs-3 position-relative">
+   <button type="submit" class="btn">Schedule</button>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item fs-5">Date: {{date}}</li>
+    <li class="list-group-item fs-5">Start: {{start}}</li>
+    <li class="list-group-item fs-5">End: {{end}}</li>
+  </ul>
+</div>
+</div>
+</div>
+{{/each}}
+</section>
+{{/each}}
