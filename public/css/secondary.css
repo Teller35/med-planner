@@ -2,6 +2,11 @@ body {
     background-image: none;
     color: black;
 }
+
 a {
     color: black;
+}
+
+.delete-id {
+    width: 2rem;
 }
