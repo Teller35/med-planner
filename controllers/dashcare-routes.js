@@ -1,18 +1,60 @@
 const router = require("express").Router();
-const { Caregiver, Patient } = require("../models");
+const { Caregiver, Patient, CaregiverSchedule, Appointments } = require("../models");
 
 router.get('/', (req, res) => {
-  Patient.findAll({
-      attributes: { exclude: ['password']}
+  Caregiver.findAll({
+    where: {
+      id: 3
+  //   patient_id: req.session.patient_id
+  },
+      attributes: { exclude: ['password']},
+      include: [
+        {
+            model: CaregiverSchedule,
+            attributes: [
+                'id',
+                'caregiver_id',
+                'date',
+                'start',
+                'end'
+            ]
+        },
+        {
+            model: Appointments,
+            attributes: [
+                'id', 
+                'caregiver_id', 
+                'patient_id', 
+                'appointment_time', 
+                'caregiver_sched_id', 
+                'patient_sched_id'
+            ],
+            include: [
+                {
+                    model: Patient,
+                    attributes: [
+                        'id',
+                        'first_name',
+                        'last_name',
+                        'birthdate',
+                        'address',
+                        'phone',
+                        'email',
+                        'contact_preference'
+                    ]
+                }   
+            ]
+        }
+    ]
   })
-  .then(dbPatientData => {
-    if (dbPatientData) {
-      const patients = dbPatientData.map(patient => patient.get({ plain: true }));
+  .then(dbCaregiverData => {
+    if (dbCaregiverData) {
+      const caregivers = dbCaregiverData.map(caregiver => caregiver.get({ plain: true }));
       res.render('dashcare', {
-            patients,
+            caregivers,
           // loggedIn: true
         })
-        // res.json(patients)
+        // res.json(caregivers)
       }
       else {
         res.status(404).end();
@@ -24,5 +66,6 @@ router.get('/', (req, res) => {
     })
   });
 
+  
 
 module.exports = router;
