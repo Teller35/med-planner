@@ -33,19 +33,8 @@ Appointments.init (
         appointment_time: {
             type: DataTypes.TIME
         },
-        caregiver_sched_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'caregiverschedule',
-                key: 'id'
-            }
-        },
-        patient_sched_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'patientschedule',
-                key: 'id'
-            }
+        date: {
+            type: DataTypes.DATEONLY
         }
     },
     {
