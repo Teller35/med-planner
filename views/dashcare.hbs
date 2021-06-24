@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/secondary.css">
 
+{{#each caregivers as |caregiver|}}
 <header class="row p-3 border-bottom border-info border-5">
   <h1 class="col-10">
     <a href="/">
@@ -7,7 +8,7 @@
     </a>
   </h1>
   <nav class="col-2">
-      <a class="btn" href="/dashcare">
+      <a class="btn" href="/dashcare/edit/{{id}}">
         My Account
       </a>
       <a class="btn logout" href="/logout">
@@ -15,7 +16,7 @@
       </a>
   </nav>
 </header>
-{{#each caregivers as |caregiver|}}
+
 <section>
   <h2 class="p-3 text-center">Welcome Dr. {{last_name}}, {{first_name}}</h2>
 </section>
@@ -34,10 +35,10 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">{{ patient.last_name }}, {{patient.first_name}}</li>
     <li class="list-group-item fs-5">Birthdate: {{ patient.birthdate }}</li>
-    {{!-- <li class="list-group-item fs-5">Address: {{ patient.address }}</li> --}}
-    {{!-- <li class="list-group-item fs-5">Phone: {{ patient.phone }}</li>
+    <li class="list-group-item fs-5">Address: {{ patient.address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ patient.phone }}</li>
     <li class="list-group-item fs-5">Email: {{ patient.email }}</li>
-    <li class="list-group-item fs-5">Contact Preference: {{ patient.contact_preference }}</li> --}}
+    <li class="list-group-item fs-5">Contact Preference: {{ patient.contact_preference }}</li>
   </ul>
 </div>
 </div>

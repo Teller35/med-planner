@@ -140,12 +140,12 @@ router.put('/edit/:id', (req, res) => {
     Patient.update(
         {
             first_name: req.body.first_name,
-            // last_name: req.body.last_name,
-            // birthdate: req.body.birthdate,
-            // address: req.body.address,
-            // phone: req.body.phone,
-            // email: req.body.email,
-            // contact_preference: req.body.contact_preference
+            last_name: req.body.last_name,
+            birthdate: req.body.birthdate,
+            address: req.body.address,
+            phone: req.body.phone,
+            email: req.body.email,
+            contact_preference: req.body.contact_preference
     },
     {
         where: {
@@ -158,7 +158,8 @@ router.put('/edit/:id', (req, res) => {
             return;
         }
         res.json(dbPatientData);
-    }).catch(err => {
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
