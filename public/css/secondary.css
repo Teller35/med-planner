@@ -11,31 +11,14 @@ a {
     width: 2rem;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /*Sit on top */
-    left: 0;
-    top: 0;
-    width: 50%; /* Full width */
-    height: 60%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: var(--secondary-color);
-    padding-top: 50px;
-    border: 3px solid rgb(100, 60, 60);
-  }
-  
-  /* Modal Content/Box */
+
   .modal-content {
     background-color: var(--secondary-color);
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 3px solid rgb(100, 60, 60);
-    width: 80%; /* Could be more or less, depending on screen size */
+    margin: 5% auto 15% auto;
+    border: 6px solid rgb(100, 60, 60);
+    width: 30%;
   }
   
-  
-  /* The Modal Close Button (x) */
   .close {
     position: absolute;
     right: 35px;
