@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Caregiver, Patient, PatientSchedule, Appointments } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Patient.findAll({
     where: {
         id: 3
@@ -56,7 +57,7 @@ router.get("/", (req, res) => {
   });
 
 
-    router.get('/edit/:id', (req, res) => {
+    router.get('/edit/:id', withAuth, (req, res) => {
       Patient.findOne({
         where: {
           id: req.params.id
