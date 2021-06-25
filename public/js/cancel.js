@@ -3,7 +3,7 @@ async function cancelAppointment(event) {
 
     const id = document.querySelector('#delete-id').value;
 
-    const response = await fetch(`api/appointments/delete/${id}`, {
+    const response = await fetch(`api/appointments/${id}`, {
         method: 'DELETE'
     });
 
