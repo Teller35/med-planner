@@ -7,6 +7,7 @@ const homeRoutes = require('./home-routes');
 const dashboardPatRoutes = require('./dashpatient-routes');
 const dashboardCareRoutes = require('./dashcare-routes');
 const caregiversRoutes = require('./caregivers-routes');
+const appointRoutes = require('./appointment-routes');
 const withAuth = require("../utils/auth");
 
 
