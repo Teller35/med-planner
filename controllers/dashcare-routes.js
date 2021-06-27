@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Caregiver, Patient, CaregiverSchedule, Appointments } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Caregiver.findAll({
     where: {
       id: 3
