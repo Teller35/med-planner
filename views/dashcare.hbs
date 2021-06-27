@@ -30,7 +30,20 @@
     <div class="col-3">
        <div class="card card-round p-1" style="width: 25rem;">
   <div class="card-header fs-3 position-relative">
-   {{ appointment_time }}, {{date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn cancel">Cancel</button></span> 
+   {{ appointment_time }}, {{date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button onclick="document.getElementById('id01').style.display='block'" class="btn">Cancel</button></span>
+   <div id="id01" class="modal">
+  <form class="modal-content">
+    <div class="container">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <h1>Cancel Appointment</h1>
+      <p>Are you sure you want to cancel this appointment?</p>
+
+      <div class="clearfix">
+        <button type="button" class="cancel btn position-absolute bottom-0 end-0 p-2">Confirm</button>
+      </div>
+    </div>
+  </form>
+</div>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">{{ patient.last_name }}, {{patient.first_name}}</li>

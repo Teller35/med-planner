@@ -1,18 +1,19 @@
-async function cancelAppointment(event) {
+async function confirmCancel(event) {
     event.preventDefault();
-
+    
     const id = document.querySelector('#delete-id').value;
 
-    const response = await fetch(`api/appointments/delete/${id}`, {
+    const response = await fetch(`api/appointments/${id}`, {
         method: 'DELETE'
     });
 
     if (response.ok) {
-        document.location.reload();
+        document.location.reload();  
     }
     else {
         alert(response.statusText);
     }
 }
+// }
 
-document.querySelector('.cancel').addEventListener('click', cancelAppointment);
+document.querySelector('.cancel').addEventListener('click', confirmCancel);
