@@ -115,6 +115,7 @@ router.post('/login', (req, res) => {
         }
 
         req.session.save(() => {
+            req.patient_id = dbPatientData.id;
             req.session.email = dbPatientData.email;
             req.session.loggedIn = true;
 
