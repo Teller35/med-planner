@@ -60,11 +60,37 @@ router.get('/', withAuth, (req, res) => {
         res.status(404).end();
       }
     })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      })
+    });
+
+    router.get('/edit/:id', (req, res) => {
+      Caregiver.findOne({
+        where: {
+          id: 3
+      //   patient_id: req.session.patient_id
+      },
+      attributes: { exclude: ['password']},
+      })
+      .then(dbCaregiverData => {
+        if (dbCaregiverData) {
+          const caregiver = dbCaregiverData.get({ plain: true });
+          res.render('edit-care', {
+            caregiver,
+            // loggedIn: true
+          })
+          // res.json(caregiver)
+        }
+        else {
+          res.status(404).end();
+        }
+      })
+      .catch(err => {
+        res.status(500).json(err);
+      })
     })
-  });
 
   
 

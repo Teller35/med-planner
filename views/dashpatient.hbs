@@ -9,7 +9,7 @@
   {{#each patients as |patient|}}
   <nav class="col-4">
       <a class="btn" href="/caregivers">
-        Search
+        Schedule
       </a>
       <a class="btn" href="/dashpatient/edit/{{id}}">
         My Account
@@ -18,48 +18,30 @@
         Logout
       </a>
   </nav>
-  {{/each}}
+  
 </header>
 <section>
-{{#each patients as |patient|}}
   <h2 class="p-3 text-center">Welcome {{last_name}}, {{first_name}}</h2>
   {{/each}}
 </section>
 
-{{!-- <section>
-  {{#each patients as |patient|}}
-<div class="container">
-  <div class="row justify-content-md-center p-3">
-    <div class="col col-lg-5">
-       <div class="card card-round p-1" style="width: 30rem;">
-  <div class="card-header fs-3 position-relative">
-    {{ last_name }}, {{ first_name }}<span class="position-absolute top-50 end-0 translate-middle-y"><a class="btn" href='/dashpatient/edit/{{id}}'>Edit</a></span> 
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">Birthdate: {{ birthdate}}</li>
-    <li class="list-group-item fs-5">Prefer Contact: {{ contact_preference }}</li>
-  </ul>
-</div>
-</div>
-{{/each}}
-</section> --}}
 
 {{#each patients}}
-  <h2 class="text-center">Appointments:</h2>
+  <h2 class="text-center p-3">Appointments:</h2>
 <section class="card-group">
 {{#each appointments}}
   <div class="row row-cols-1 row-cols-md-3 p-1">
     <div class="col-3">
        <div class="card card-round p-1" style="width: 25rem;">
   <div class="card-header fs-3 position-relative">
-  {{ appointment_time }}, {{date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn">Cancel</button></span> 
+  {{ appointment_time }}, {{date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button type="submit" class="btn cancel">Cancel</button></span> 
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">Dr. {{ caregiver.last_name }}, {{caregiver.first_name}}</li>
     <li class="list-group-item fs-5">Specialty: {{ caregiver.specialty }}</li>
     <li class="list-group-item fs-5">Address: {{ caregiver.address }}</li>
     <li class="list-group-item fs-5">Phone: {{ caregiver.phone }}</li>
-    <li class="list-group-item fs-5">Practice: {{ caregiver.practice_name }}</li>
+    <li class="list-group-item fs-5">Practice: {{ caregiver.practice_name }}<input class="invisible delete-id" id="delete-id" value="{{id}}"</li>
   </ul>
 </div>
 </div>
@@ -68,5 +50,5 @@
 </section>
 {{/each}}
 
-
+<script src="/js/cancel.js"></script>
 <script src="/js/logout.js"></script>

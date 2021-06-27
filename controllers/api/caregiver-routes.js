@@ -137,18 +137,31 @@ router.post('/logout', (req, res) => {
 });
 
 // route to update a caregiver
-router.put('/:id', (req, res) => {
-    Caregiver.update(req.body, {
+router.put('/edit/:id', (req, res) => {
+    Caregiver.update(
+        {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            phone: req.body.phone,
+            fax: req.body.fax,
+            specialty: req.body.specialty,
+            email: req.body.email,
+            practice_name: req.body.practice_name,
+            address: req.body.address
+        },
+        {
         where: {
             id: req.params.id
         }
-    }).then(dbCaregiverData => {
+    })
+    .then(dbCaregiverData => {
         if (!dbCaregiverData) {
             res.status(404).json({ message: 'Caregiver not found. Update unsuccessful.' });
             return;
         }
-        res.json({ message: 'Caregiver information updated.' });
-    }).catch(err => {
+        res.json(dbCaregiverData);
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });

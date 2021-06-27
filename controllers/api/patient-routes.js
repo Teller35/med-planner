@@ -136,18 +136,30 @@ router.post('/logout', (req, res) => {
 });
 
 // route to update a patient
-router.put('/:id', (req, res) => {
-    Patient.update(req.body, {
+router.put('/edit/:id', (req, res) => {
+    Patient.update(
+        {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            birthdate: req.body.birthdate,
+            address: req.body.address,
+            phone: req.body.phone,
+            email: req.body.email,
+            contact_preference: req.body.contact_preference
+    },
+    {
         where: {
             id: req.params.id
         }
-    }).then(dbPatientData => {
+    })
+    .then(dbPatientData => {
         if (!dbPatientData) {
-            res.status(404).json({ message: 'Patient not found. Update unsuccessful.' });
+            res.status(404).json({ message: 'Patient not found.' });
             return;
         }
-        res.json({ message: 'Patient information updated.' });
-    }).catch(err => {
+        res.json(dbPatientData);
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
