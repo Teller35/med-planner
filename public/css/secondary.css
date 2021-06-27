@@ -10,3 +10,39 @@ a {
 .delete-id {
     width: 2rem;
 }
+
+
+  .modal-content {
+    background-color: var(--secondary-color);
+    margin: 5% auto 15% auto;
+    border: 6px solid rgb(100, 60, 60);
+    width: 30%;
+  }
+  
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+ 
+  @media screen and (max-width: 300px) {
+    .btn {
+      width: 100%;
+    }
+  }

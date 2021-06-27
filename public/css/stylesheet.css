@@ -88,3 +88,17 @@ footer {
 .modal-body div:hover {
     background-color: var(--secondary-color);
 }
+
+/* @media screen and (mix-width: 576px) {
+    .form {
+        margin-left: 2%;
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+} */
