@@ -9,9 +9,6 @@ const dashboardCareRoutes = require('./dashcare-routes');
 const caregiversRoutes = require('./caregivers-routes');
 const appointRoutes = require('./appointment-routes');
 
-const withAuth = require("../utils/auth");
-
-
 // assign routes
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
