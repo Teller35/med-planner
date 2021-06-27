@@ -32,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(require('./controllers'));
-// exphbs({ extname: 'hbs'})
+
 // add handlebars engine
-app.engine('hbs', hbs.engine);
+app.engine('hbs', exphbs({ extname: 'hbs'}));
 app.set('view engine', 'hbs');
 
 // initialize and sync the server

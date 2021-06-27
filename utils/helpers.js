@@ -1,6 +1,5 @@
 const luxon = require("../build/node/luxon");
 
-import { Time } from "gantt-schedule-timeline-calendar/dist/api/time";
 import { DateTime } from "luxon";
 
 global.DateTime = luxon.DateTime;
