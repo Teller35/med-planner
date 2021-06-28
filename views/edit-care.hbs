@@ -64,7 +64,7 @@
 
 {{!-- add a schedule header --}}
 <section>
-  <h1 class="p-3 text-center">Add Schedule</h1>
+  <h1 class="p-3 mt-5 text-center">Add Schedule</h1>
 </section>
 
 {{!-- form to add a schedule --}}
@@ -90,7 +90,7 @@
 
 {{!-- availability header --}}
 <section>
-  <h1 class="p-3 text-center">Your Availability</h1>
+  <h1 class="p-3 mt-5 text-center">Your Availability</h1>
 </section>
 
 {{!-- cards for each schedule --}}
@@ -106,6 +106,7 @@
     <li class="list-group-item fs-5">{{date}}</li>
     <li class="list-group-item fs-5">Start: {{start}}</li>
     <li class="list-group-item fs-5">End: {{end}}</li>
+    <div class="hidden-sched-id" value={{id}}></div>
   </ul>
 </div>
 </div>
