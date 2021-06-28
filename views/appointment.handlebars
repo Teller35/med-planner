@@ -53,9 +53,9 @@
             <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" schedule-id="{{ id }}">Schedule</button>
           </div>
           <ul class="list-group list-group-flush" id="{{ id }}">
-            <li class="list-group-item fs-5">Date: {{date}}</li>
-            <li class="list-group-item fs-5" start-time="{{ start }}">Start: {{start}}</li>
-            <li class="list-group-item fs-5" end-time="{{ end }}">End: {{end}}</li>
+            <li class="list-group-item fs-5">Date: {{ format_date date}}</li>
+            <li class="list-group-item fs-5" start-time="{{ start }}">Start: {{format_time start}}</li>
+            <li class="list-group-item fs-5" end-time="{{ end }}">End: {{format_time end}}</li>
           </ul>
         </div>
       </div>
