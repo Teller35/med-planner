@@ -36,8 +36,8 @@ app.use(require('./controllers'));
 // add handlebars engine
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine('hbs', exphbs({ extname: 'hbs'}), hbs.engine);
+app.set('view engine', 'hbs');
 
 // initialize and sync the server
 sequelize.sync({ force: false }).then(() => {
