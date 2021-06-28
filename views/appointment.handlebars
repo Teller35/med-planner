@@ -53,9 +53,9 @@
             <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" schedule-id="{{ id }}">Schedule</button>
           </div>
           <ul class="list-group list-group-flush" id="{{ id }}">
-            <li class="list-group-item fs-5">Date: {{date}}</li>
-            <li class="list-group-item fs-5" start-time="{{ start }}">Start: {{start}}</li>
-            <li class="list-group-item fs-5" end-time="{{ end }}">End: {{end}}</li>
+            <li class="list-group-item fs-5">Date: {{ format_date date}}</li>
+            <li class="list-group-item fs-5" start-time="{{ start }}">Start: {{format_time start}}</li>
+            <li class="list-group-item fs-5" end-time="{{ end }}">End: {{format_time end}}</li>
           </ul>
         </div>
       </div>
@@ -81,5 +81,5 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/luxon@1.27.0/build/global/luxon.min.js" integrity="sha256-cJnCTPRTD3OUjTD4Ml0WEMsmTiLl71arKaZ9DEZJk0o=" crossorigin="anonymous"></script>
+
 <script src="/js/appointment.js"></script>

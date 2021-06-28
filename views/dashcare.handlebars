@@ -30,7 +30,7 @@
     <div class="col-3">
        <div class="card card-round p-1" style="width: 25rem;">
   <div class="card-header fs-3 position-relative">
-   {{ appointment_time }}, {{date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button onclick="document.getElementById('id01').style.display='block'" class="btn">Cancel</button></span>
+   {{format_time appointment_time }}, {{format_date date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button onclick="document.getElementById('id01').style.display='block'" class="btn">Cancel</button></span>
    <div id="id01" class="modal">
   <form class="modal-content modal-mine">
     <div class="container">

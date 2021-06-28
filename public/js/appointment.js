@@ -1,6 +1,3 @@
-// require dependencies
-// const { DateTime } = require("luxon");
-
 async function addAppointmentHandler(event) {
     if (event.target.getAttribute("data-bs-toggle") === "modal") {
         let id = event.target.getAttribute("schedule-id");
@@ -22,7 +19,15 @@ async function addAppointmentHandler(event) {
 
             let timeEl = document.createElement("span")
             timeEl.setAttribute("class", "time-block fs-2");
-            timeEl.innerText = `${i}:00:00`;
+            if (i < 12) {
+                timeEl.innerText = `${i}:00 AM`;
+            } 
+            else if (i === 12) {
+                timeEl.innerText = `${i}:00 PM`;
+            } 
+            else {
+                timeEl.innerText = `${i-12}:00 PM`;
+            }
             blockEl.appendChild(timeEl)
 
             let buttonEl = document.createElement("button");
