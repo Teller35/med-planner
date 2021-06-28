@@ -15,7 +15,7 @@ a {
   .modal-content {
     background-color: var(--secondary-color);
     margin: 5% auto 15% auto;
-    border: 6px solid rgb(100, 60, 60);
+    border: 6px solid rgb(60, 89, 100);
   }
   
   .modal-mine {
@@ -23,6 +23,7 @@ a {
   }
 
   .modal-body {
+    font-size: smaller;
     background-color: white;
     border-top: 2px solid black;
     border-bottom: 2px solid black;

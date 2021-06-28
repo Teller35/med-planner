@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="/css/secondary.css">
 
-<header class="row p-3 border-bottom border-info border-5">
-  <h1 class="col-10">
+<header class="row p-3 center border-bottom border-info border-5">
+  <h1 class="col-8">
     <a href="/">
       Med Planner
     </a>
   </h1>
-  <nav class="col-2">
+  <nav class="col-auto">
       <a class="btn" href="/dashpatient">
         Home
       </a>
@@ -22,7 +22,7 @@
 
 <section class="card-group">
 {{#each caregivers}}
-  <div class="row row-cols-1 row-cols-md-3 p-3">
+  <div class="center row row-cols-1 row-cols-md-3 p-3">
     <div class="col-3">
        <div class="card card-round p-1" style="width: 40rem;">
   <div class="card-header fs-3 position-relative">
@@ -43,10 +43,10 @@
 
 <div class="schedule-section">
   {{#each caregivers}}
-  <h2 class="text-center p-3">Schedules:</h2>
+  <h2 class="p-3 text-center">Schedules:</h2>
   <section class="card-group">
   {{#each caregiverschedules}}
-    <div class="row row-cols-1 row-cols-md-3 p-1">
+    <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 p-1">
       <div class="col-3">
         <div class="card card-round p-1" style="width: 15rem;">
           <div class="card-header fs-3 position-relative">
