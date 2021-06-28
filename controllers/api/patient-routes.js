@@ -40,8 +40,8 @@ router.get('/:id', (req, res) => {
                     'caregiver_id', 
                     'patient_id', 
                     'appointment_time', 
-                    'caregiver_sched_id', 
-                    'patient_sched_id'
+                    'appointment_time', 
+                    'date'
                 ],
                 include: [
                     {
@@ -81,11 +81,14 @@ router.post('/', (req, res) => {
         address: req.body.address,
         phone: req.body.phone,
         email: req.body.email,
-        // allergies: req.body.allergies
         contact_preference: req.body.contact_preference,
         password: req.body.password
+    },
+    {
+        individualHooks: true
     }).then(dbPatientData => {
         req.session.save(() => {
+            req.session.patient_id = dbPatientData.id;
             req.session.email = dbPatientData.email;
             req.session.loggedIn = true;
     
@@ -115,7 +118,7 @@ router.post('/login', (req, res) => {
         }
 
         req.session.save(() => {
-            req.patient_id = dbPatientData.id;
+            req.session.patient_id = dbPatientData.id;
             req.session.email = dbPatientData.email;
             req.session.loggedIn = true;
 
@@ -149,6 +152,7 @@ router.put('/edit/:id', (req, res) => {
             contact_preference: req.body.contact_preference
     },
     {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
