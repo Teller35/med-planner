@@ -54,7 +54,7 @@ async function addSchedule(event) {
     })
 
     if (response.ok) {
-        document.location.replace('/dashcare');
+        document.location.reload();
     }
     else {
         alert(response.statusText)
