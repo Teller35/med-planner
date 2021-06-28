@@ -25,6 +25,8 @@ const seedAll = async () => {
     await seedAppointments();
     console.log('\n----- APPOINTMENTS SEEDED -----\n');
 
+    console.log('\n----- ALL SEED DATA COMPLETED -----\n');
+
     process.exit(0);
 };
 
