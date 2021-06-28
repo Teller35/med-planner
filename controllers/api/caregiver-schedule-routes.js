@@ -80,7 +80,7 @@ router.put('/:id', (req, res) => {
 });
 
 // delete caregiver schedule
-router.delete('/delete/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     CaregiverSchedule.destroy({
         where: {
             id: req.params.id

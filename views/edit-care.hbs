@@ -7,12 +7,12 @@
     </a>
   </h1>
   <nav class="col-2">
-      <a class="btn" href="/dashcare">
-        Home
-      </a>
-      <a class="btn logout" href="/logout">
-        Logout
-      </a>
+    <a class="btn" href="/dashcare">
+      Home
+    </a>
+    <a class="btn logout" href="/logout">
+      Logout
+    </a>
   </nav>
 </header>
 <section>
@@ -20,38 +20,69 @@
 </section>
 
 <section>
-<form class="edit-caregiver-form row round p-3 g-3 text-center">
+  <form class="edit-caregiver-form row round p-3 g-3 text-center">
     <div class="input-group">
-  <div class="col-md-3">
-  <span class="fs-3">First</span><input type="text" class="form-control round text-center fs-5" id="first_name" value="{{caregiver.first_name}}" required>
-  </div>
-  <div class="col-md-3">
-  <span class="fs-3">Last</span><input type="text" class="form-control round text-center fs-5" id="last_name" value="{{caregiver.last_name}}" required>
-  </div>
-  <div class="col-md-3">
-  <span class="fs-3">Phone</span><input type="text" class="form-control round text-center fs-5" id="phone" value="{{caregiver.phone}}" required>
-  </div>
-  <div class="col-md-3">
-  <span class="fs-3">Fax</span><input type="text" class="form-control round text-center fs-5" id="fax" value="{{caregiver.fax}}" required>
-  </div>
-  <div class="col-md-3">
-  <span class="fs-3">Specialty</span><input type="text" class="form-control round text-center fs-5" id="specialty" value="{{caregiver.specialty}}" required>
-  </div>
-  <div class="col-md-6">
-  <span class="fs-3">Email</span><input type="text" class="form-control round text-center fs-5" id="email" value="{{caregiver.email}}" required>
-  </div>
-  <div class="col-md-3">
-  <span class="fs-3">Practice</span><input type="text" class="form-control round text-center fs-5" id="practice_name" value="{{caregiver.practice_name}}" required>
-  </div>
-  <div class="col-md-12">
-  <span class="fs-3">Address</span><input type="text" class="form-control round text-center fs-5" id="address" value="{{caregiver.address}}" required>
-  </div>
-  <div class="col-12">
-    <button class="btn" type="submit">Update</button>
+      <div class="col-md-3">
+        <span class="fs-3">First</span><input type="text" class="form-control round text-center fs-5" id="first_name"
+          value="{{caregiver.first_name}}" required>
+      </div>
+      <div class="col-md-3">
+        <span class="fs-3">Last</span><input type="text" class="form-control round text-center fs-5" id="last_name"
+          value="{{caregiver.last_name}}" required>
+      </div>
+      <div class="col-md-3">
+        <span class="fs-3">Phone</span><input type="text" class="form-control round text-center fs-5" id="phone"
+          value="{{caregiver.phone}}" required>
+      </div>
+      <div class="col-md-3">
+        <span class="fs-3">Fax</span><input type="text" class="form-control round text-center fs-5" id="fax"
+          value="{{caregiver.fax}}" required>
+      </div>
+      <div class="col-md-3">
+        <span class="fs-3">Specialty</span><input type="text" class="form-control round text-center fs-5" id="specialty"
+          value="{{caregiver.specialty}}" required>
+      </div>
+      <div class="col-md-6">
+        <span class="fs-3">Email</span><input type="text" class="form-control round text-center fs-5" id="email"
+          value="{{caregiver.email}}" required>
+      </div>
+      <div class="col-md-3">
+        <span class="fs-3">Practice</span><input type="text" class="form-control round text-center fs-5"
+          id="practice_name" value="{{caregiver.practice_name}}" required>
+      </div>
+      <div class="col-md-12">
+        <span class="fs-3">Address</span><input type="text" class="form-control round text-center fs-5" id="address"
+          value="{{caregiver.address}}" required>
+      </div>
+      <div class="col-12">
+        <button class="btn" type="submit">Update</button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+
 </section>
+
+<section>
+  <h1 class="p-3 text-center">Your Availability</h1>
+</section>
+
+<section class="card-group">
+{{#each caregiver.caregiverschedules}}
+  <div class="row row-cols-1 row-cols-md-3 p-1">
+    <div class="col-3">
+       <div class="card card-round p-1" style="width: 12rem;">
+  <div class="card-header fs-3 position-relative">
+   {{!-- <button type="submit" class="btn">Delete</button> --}}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item fs-5">Date: {{date}}</li>
+    <li class="list-group-item fs-5">Start: {{start}}</li>
+    <li class="list-group-item fs-5">End: {{end}}</li>
+  </ul>
+</div>
+</div>
+</div>
+{{/each}}
 
 <script src="/js/edit-caregiver.js"></script>
 <script src="/js/logout.js"></script>

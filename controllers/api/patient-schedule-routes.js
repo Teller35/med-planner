@@ -80,7 +80,7 @@ router.put('/:id', (req, res) => {
 });
 
 // delete patient schedule
-router.delete('/delete/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     PatientSchedule.destroy({
         where: {
             id: req.params.id
