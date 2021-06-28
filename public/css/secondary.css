@@ -18,6 +18,24 @@ a {
     border: 6px solid rgb(100, 60, 60);
     width: 30%;
   }
+
+  .modal-body {
+    background-color: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.modal-body div {
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 5px 0;
+  padding-left: 25px;
+}
+
+.modal-body div:hover {
+  background-color: var(--secondary-color);
+}
   
   .close {
     position: absolute;
