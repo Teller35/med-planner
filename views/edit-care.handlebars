@@ -100,13 +100,12 @@
     <div class="col-3">
        <div class="card card-round p-1" style="width: 12rem;">
   <div class="card-header fs-3 position-relative">
-   <button class="btn delete-sched-btn">Delete</button>
+   <button id={{id}} class="btn sched-btn">Delete</button>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">{{ format_date date}}</li>
     <li class="list-group-item fs-5">Start: {{format_time start}}</li>
     <li class="list-group-item fs-5">End: {{format_time end}}</li>
-    <div class="hidden-sched-id" value={{id}}></div>
   </ul>
 </div>
 </div>

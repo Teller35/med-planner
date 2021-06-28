@@ -90,7 +90,7 @@ router.delete('/:id', (req, res) => {
             res.status(404).json({ message: `No caregiver schedule found with id ${req.params.id}.` });
             return;
         }
-        res.status(200).json({ id: dbAppointmentData.id, message: 'Caregiver schedule deleted successfully.' });
+        res.status(200).json({ id: dbCaregiverScheduleData.id, message: 'Caregiver schedule deleted successfully.' });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
