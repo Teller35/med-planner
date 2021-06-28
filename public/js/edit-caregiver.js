@@ -54,7 +54,7 @@ async function addSchedule(event) {
     })
 
     if (response.ok) {
-        document.location.replace('/dashcare');
+        document.location.reload();
     }
     else {
         alert(response.statusText)
@@ -63,24 +63,29 @@ async function addSchedule(event) {
 
 document.querySelector('.add-sched-form').addEventListener('submit', addSchedule);
 
+
+
 // delete a schedule
 async function deleteSchedule(event) {
-    console.log('btn working');
+    event.preventDefault;
 
-    event.preventDefault();
+    const schedId = this.id;
 
-    // const id = document.querySelector('.hidden-sched-id').value;
+    const response = await fetch(`/api/caregiverschedule/${schedId}`, {
+        method: 'delete'
+    });
 
-    // const response = await fetch(`api/caregiverschedule/${id}`, {
-    //     method: 'delete'
-    // });
-
-    // if (response.ok) {
-    //     document.location.reload();
-    // }
-    // else {
-    //     alert(response.statusText);
-    // }
+    if (response.ok) {
+        document.location.reload();
+    }
+    else {
+        alert(response.statusText);
+    }
 }; 
 
-document.querySelector('.delete-sched-btn').addEventListener('click', deleteSchedule);
+let schedButtons = document.querySelectorAll("button.sched-btn");
+
+for (i of schedButtons){
+    i.addEventListener('click', deleteSchedule)
+}
+
