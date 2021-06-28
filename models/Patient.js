@@ -8,7 +8,6 @@ class Patient extends Model {
     }
 }
 
-//may need to be updated with seeds
 Patient.init(
     {
         id: {
@@ -45,10 +44,6 @@ Patient.init(
                 isEmail: true
             }
         },
-        // allergies: {
-        //     type: DataTypes.ARRAY(DataTypes.STRING),
-        //     allowNull: false,
-        // },
         contact_preference: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -67,8 +62,7 @@ Patient.init(
                 newPatientData.password = await bcrypt.hash(newPatientData.password, 10);
                 return newPatientData;
             },
-            
-            async beforeCreate(updatedPatientData) {
+            async beforeUpdate(updatedPatientData) {
                 updatedPatientData.password - await bcrypt.hash(updatedPatientData.password, 10);
                 return updatedPatientData;
             }

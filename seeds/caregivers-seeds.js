@@ -58,6 +58,6 @@ const caregiverData = [
     }
 ];
 
-const seedCaregivers = () => Caregiver.bulkCreate(caregiverData);
+const seedCaregivers = () => Caregiver.bulkCreate(caregiverData, {individualHooks: true});
 
 module.exports = seedCaregivers;

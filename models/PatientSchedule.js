@@ -1,23 +1,15 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
 
-class Appointments extends Model {}
+class PatientSchedule extends Model {};
 
-Appointments.init (
+PatientSchedule.init (
     {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
             allowNull: false,
+            primaryKey: true,
             autoIncrement: true
-        },
-        caregiver_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'caregiver',
-                key: 'id'
-            }
         },
         patient_id: {
             type: DataTypes.INTEGER,
@@ -26,11 +18,15 @@ Appointments.init (
                 key: 'id'
             }
         },
-        appointment_time: {
+        date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false
+        },
+        start: {
             type: DataTypes.TIME
         },
-        date: {
-            type: DataTypes.DATEONLY
+        end: {
+            type: DataTypes.TIME
         }
     },
     {
@@ -39,10 +35,8 @@ Appointments.init (
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'appointments'
+        modelName: 'patientschedule'
     }
 );
 
-module.exports = Appointments;
-
-
+module.exports = PatientSchedule;

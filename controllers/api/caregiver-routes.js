@@ -2,12 +2,12 @@
 const router = require('express').Router();
 
 // require models
-const { Patient, Caregiver } = require('../../models');
+const { Appointments, Patient, Caregiver, CaregiverSchedule } = require('../../models');
 
 // route to get all caregivers
 router.get('/', (req, res) => {
     Caregiver.findAll({
-        // attributes: { exclude: ['password']}
+        attributes: { exclude: ['password']}
     }).then(dbCaregiverData => res.json(dbCaregiverData)
     ).catch(err => {
         console.log(err);
@@ -21,7 +21,44 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
-        }
+        },        
+        include: [
+            {
+                model: CaregiverSchedule,
+                attributes: [
+                    'id',
+                    'caregiver_id',
+                    'date',
+                    'start',
+                    'end'
+                ]
+            },
+            {
+                model: Appointments,
+                attributes: [
+                    'id', 
+                    'caregiver_id', 
+                    'patient_id', 
+                    'date',
+                    'appointment_time', 
+                ],
+                include: [
+                    {
+                        model: Patient,
+                        attributes: [
+                            'id',
+                            'first_name',
+                            'last_name',
+                            'birthdate',
+                            'address',
+                            'phone',
+                            'email',
+                            'contact_preference'
+                        ]
+                    }   
+                ]
+            }
+        ]
     }).then(dbCaregiverData => {
         if (!dbCaregiverData) {
             res.status(404).json({ message: 'No caregiver data found with that id.' });
@@ -46,11 +83,17 @@ router.post('/', (req, res) => {
         fax: req.body.fax,
         email: req.body.email,
         password: req.body.password
+    },
+    {
+        individualHooks: true
     }).then(dbCaregiverData => {
-        if (!dbCaregiverData) {
-            return;
-        }
-        res.json({ message: 'Caregiver created successfully.'});
+        req.session.save(() => {
+            req.session.caregiver_id = dbCaregiverData.id;
+            req.session.email = dbCaregiverData.email;
+            req.session.loggedIn = true;
+
+            res.json({ message: 'Caregiver created successfully.'});
+        });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -74,29 +117,54 @@ router.post('/login', (req, res) => {
             return;
         }
 
-        res.json({ patient: dbCaregiverData, message: 'You are now logged in!' });
+        req.session.save(() => {
+            req.session.caregiver_id = dbCaregiverData.id;
+            req.session.email = dbCaregiverData.email;
+            req.session.loggedIn = true;
 
+            res.json({ caregiver: dbCaregiverData, message: 'You are now logged in!' });
+        });
     });
 });
 
 // POST for caregiver logout
 router.post('/logout', (req, res) => {
-
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 // route to update a caregiver
-router.put('/:id', (req, res) => {
-    Caregiver.update(req.body, {
+router.put('/edit/:id', (req, res) => {
+    Caregiver.update(
+        {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            phone: req.body.phone,
+            fax: req.body.fax,
+            specialty: req.body.specialty,
+            email: req.body.email,
+            practice_name: req.body.practice_name,
+            address: req.body.address
+        },
+        {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
-    }).then(dbCaregiverData => {
+    })
+    .then(dbCaregiverData => {
         if (!dbCaregiverData) {
             res.status(404).json({ message: 'Caregiver not found. Update unsuccessful.' });
             return;
         }
-        res.json({ message: 'Caregiver information updated.' });
-    }).catch(err => {
+        res.json(dbCaregiverData);
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });

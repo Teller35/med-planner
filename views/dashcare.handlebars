@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/css/secondary.css">
+
+{{#each caregivers as |caregiver|}}
+<header class="row p-3 border-bottom border-info border-5">
+  <h1 class="col-10">
+    <a href="/">
+      Med Planner
+    </a>
+  </h1>
+  <nav class="col-2">
+      <a class="btn" href="/dashcare/edit/{{id}}">
+        My Account
+      </a>
+      <a class="btn logout" href="/">
+        Logout
+      </a>
+  </nav>
+</header>
+
+<section>
+  <h2 class="p-3 text-center">Welcome Dr. {{last_name}}, {{first_name}}</h2>
+</section>
+{{/each}}
+
+{{#each caregivers}}
+  <h2 class="text-center">Appointments:</h2>
+<section class="card-group">
+{{#each appointments}}
+  <div class="row row-cols-1 row-cols-md-3 p-1">
+    <div class="col-3">
+       <div class="card card-round p-1" style="width: 25rem;">
+  <div class="card-header fs-3 position-relative">
+   {{format_time appointment_time }}, {{format_date date}}<span class="position-absolute top-50 end-0 translate-middle-y"><button onclick="document.getElementById('id01').style.display='block'" class="btn">Cancel</button></span>
+   <div id="id01" class="modal">
+  <form class="modal-content modal-mine">
+    <div class="container">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <h1>Cancel Appointment</h1>
+      <p>Are you sure you want to cancel this appointment?</p>
+
+      <div class="clearfix">
+        <button type="button" class="cancel btn position-absolute bottom-0 end-0 p-2">Confirm</button>
+      </div>
+    </div>
+  </form>
+</div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item fs-5">{{ patient.last_name }}, {{patient.first_name}}</li>
+    <li class="list-group-item fs-5">Birthdate: {{ patient.birthdate }}</li>
+    <li class="list-group-item fs-5">Address: {{ patient.address }}</li>
+    <li class="list-group-item fs-5">Phone: {{ patient.phone }}</li>
+    <li class="list-group-item fs-5">Email: {{ patient.email }}</li>
+    <li class="list-group-item fs-5">Contact Preference: {{ patient.contact_preference }}<input class="invisible delete-id" id="delete-id" value="{{id}}"</li>
+  </ul>
+</div>
+</div>
+</div>
+{{/each}}
+</section>
+{{/each}}
+
+<script src="/js/cancel.js"></script>
+<script src="/js/logout.js"></script>

@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // require models
-const { Patient, Caregiver } = require('../../models');
+const { Appointments, Caregiver, CaregiverSchedule, Patient, PatientSchedule } = require('../../models');
 
 // route to get all patient
 router.get('/', (req, res) => {
@@ -21,7 +21,45 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            {
+                model: PatientSchedule,
+                attributes: [
+                    'id',
+                    'patient_id',
+                    'date',
+                    'start',
+                    'end'
+                ]
+            },
+            {
+                model: Appointments,
+                attributes: [
+                    'id', 
+                    'caregiver_id', 
+                    'patient_id', 
+                    'appointment_time', 
+                    'appointment_time', 
+                    'date'
+                ],
+                include: [
+                    {
+                        model: Caregiver,
+                        attributes: [
+                            'id', 
+                            'practice_name', 
+                            'first_name', 
+                            'last_name', 
+                            'specialty',
+                            'phone',
+                            'address',
+                        ]
+                    }
+                    
+                ]
+            }
+        ]
     }).then(dbPatientData => {
         if (!dbPatientData) {
             res.status(404).json({ message: 'No patient data found with that id.' });
@@ -43,14 +81,19 @@ router.post('/', (req, res) => {
         address: req.body.address,
         phone: req.body.phone,
         email: req.body.email,
-        // allergies: req.body.allergies
         contact_preference: req.body.contact_preference,
         password: req.body.password
+    },
+    {
+        individualHooks: true
     }).then(dbPatientData => {
-        if (!dbPatientData) {
-            return;
-        }
-        res.json({ message: 'Patient created successfully.'});
+        req.session.save(() => {
+            req.session.patient_id = dbPatientData.id;
+            req.session.email = dbPatientData.email;
+            req.session.loggedIn = true;
+    
+            res.json({ message: 'Patient created successfully.'});
+        });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -74,29 +117,54 @@ router.post('/login', (req, res) => {
             return;
         }
 
-        res.json({ patient: dbPatientData, message: 'You are now logged in!' });
+        req.session.save(() => {
+            req.session.patient_id = dbPatientData.id;
+            req.session.email = dbPatientData.email;
+            req.session.loggedIn = true;
+
+            res.json({ patient: dbPatientData, message: 'You are now logged in!' });
+        });
 
     });
 });
 
 // POST for patient logout
 router.post('/logout', (req, res) => {
-    
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 // route to update a patient
-router.put('/:id', (req, res) => {
-    Patient.update(req.body, {
+router.put('/edit/:id', (req, res) => {
+    Patient.update(
+        {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            birthdate: req.body.birthdate,
+            address: req.body.address,
+            phone: req.body.phone,
+            email: req.body.email,
+            contact_preference: req.body.contact_preference
+    },
+    {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
-    }).then(dbPatientData => {
+    })
+    .then(dbPatientData => {
         if (!dbPatientData) {
-            res.status(404).json({ message: 'Patient not found. Update unsuccessful.' });
+            res.status(404).json({ message: 'Patient not found.' });
             return;
         }
-        res.json({ message: 'Patient information updated.' });
-    }).catch(err => {
+        res.json(dbPatientData);
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });

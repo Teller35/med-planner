@@ -8,7 +8,6 @@ class Caregiver extends Model {
     }
 }
 
-//may need to change based on seeds, basic outline
 Caregiver.init (
     {
         id: {
@@ -53,15 +52,6 @@ Caregiver.init (
                 isEmail: true
             }
         },
-        // hours: {
-        //     type: DataTypes.ARRAY,
-        //     allowNull: true,
-        //     references: {
-        //         model: 'hours',
-        //         key: 'hour'
-        //     }
-        // },
-        // this may need to reference appointments instead of hours
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -76,7 +66,6 @@ Caregiver.init (
                 newCaregiverData.password = await bcrypt.hash(newCaregiverData.password, 10);
                 return newCaregiverData;
             },
-
             async beforeUpdate(updatedCaregiverData) {
                 updatedCaregiverData.password = await bcrypt.hash(updatedCaregiverData.password, 10);
                 return updatedCaregiverData;
