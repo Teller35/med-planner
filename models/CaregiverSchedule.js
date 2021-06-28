@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
-class CaregiverSchedule extends Model {
-};
+class CaregiverSchedule extends Model {};
 
 CaregiverSchedule.init (
     {

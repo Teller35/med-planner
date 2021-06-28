@@ -4,8 +4,7 @@ const { Caregiver, Patient, CaregiverSchedule, Appointments } = require("../mode
 router.get('/', (req, res) => {
   Caregiver.findAll({
     where: {
-      id: 3
-      //   patient_id: req.session.patient_id
+      id: req.session.caregiver_id
     },
     attributes: { exclude: ['password'] },
     include: [
@@ -51,9 +50,7 @@ router.get('/', (req, res) => {
         const caregivers = dbCaregiverData.map(caregiver => caregiver.get({ plain: true }));
         res.render('dashcare', {
           caregivers,
-          // loggedIn: true
         })
-        // res.json(caregivers)
       }
       else {
         res.status(404).end();
@@ -68,8 +65,7 @@ router.get('/', (req, res) => {
 router.get('/edit/:id', (req, res) => {
   Caregiver.findOne({
     where: {
-      id: 3
-      //   patient_id: req.session.patient_id
+      id: req.session.caregiver_id
     },
     attributes: { exclude: ['password'] },
     include: [
@@ -91,9 +87,7 @@ router.get('/edit/:id', (req, res) => {
         const caregiver = dbCaregiverData.get({ plain: true });
         res.render('edit-care', {
           caregiver,
-          // loggedIn: true
         })
-        // res.json(caregiver)
       }
       else {
         res.status(404).end();

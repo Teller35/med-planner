@@ -11,9 +11,7 @@ router.get('/', (req, res) => {
         const caregivers = dbCaregiverData.map(caregiver => caregiver.get({ plain: true }));
         res.render('caregivers', {
               caregivers,
-            // loggedIn: true
           })
-          // res.json(caregivers)
         }
         else {
           res.status(404).end();

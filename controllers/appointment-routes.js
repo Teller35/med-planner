@@ -5,7 +5,6 @@ router.get('/:id', (req, res) => {
     Caregiver.findAll({
       where: {
         id: req.params.id
-    //   patient_id: req.session.patient_id
     },
         attributes: { exclude: ['password']},
         include: [
@@ -51,9 +50,7 @@ router.get('/:id', (req, res) => {
         const caregivers = dbCaregiverData.map(caregiver => caregiver.get({ plain: true }));
         res.render('appointment', {
               caregivers,
-            // loggedIn: true
           })
-        //   res.json(caregivers)
         }
         else {
           res.status(404).end();

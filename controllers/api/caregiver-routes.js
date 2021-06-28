@@ -83,6 +83,9 @@ router.post('/', (req, res) => {
         fax: req.body.fax,
         email: req.body.email,
         password: req.body.password
+    },
+    {
+        individualHooks: true
     }).then(dbCaregiverData => {
         req.session.save(() => {
             req.session.caregiver_id = dbCaregiverData.id;
@@ -119,7 +122,7 @@ router.post('/login', (req, res) => {
             req.session.email = dbCaregiverData.email;
             req.session.loggedIn = true;
 
-            res.json({ patient: dbCaregiverData, message: 'You are now logged in!' });
+            res.json({ caregiver: dbCaregiverData, message: 'You are now logged in!' });
         });
     });
 });
@@ -149,6 +152,7 @@ router.put('/edit/:id', (req, res) => {
             address: req.body.address
         },
         {
+        individualHooks: true,
         where: {
             id: req.params.id
         }

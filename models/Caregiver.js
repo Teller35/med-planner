@@ -66,7 +66,6 @@ Caregiver.init (
                 newCaregiverData.password = await bcrypt.hash(newCaregiverData.password, 10);
                 return newCaregiverData;
             },
-
             async beforeUpdate(updatedCaregiverData) {
                 updatedCaregiverData.password = await bcrypt.hash(updatedCaregiverData.password, 10);
                 return updatedCaregiverData;
