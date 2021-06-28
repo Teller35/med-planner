@@ -22,7 +22,7 @@ async function addAppointmentHandler(event) {
 
             let timeEl = document.createElement("span")
             timeEl.setAttribute("class", "time-block fs-2");
-            timeEl.innerText = `${i}:00:00`;
+            timeEl.innerText = `${i}:00`;
             blockEl.appendChild(timeEl)
 
             let buttonEl = document.createElement("button");

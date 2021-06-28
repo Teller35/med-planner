@@ -103,9 +103,9 @@
    <button class="btn delete-sched-btn">Delete</button>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">{{date}}</li>
-    <li class="list-group-item fs-5">Start: {{start}}</li>
-    <li class="list-group-item fs-5">End: {{end}}</li>
+    <li class="list-group-item fs-5">{{ format_date date}}</li>
+    <li class="list-group-item fs-5">Start: {{format_time start}}</li>
+    <li class="list-group-item fs-5">End: {{format_time end}}</li>
     <div class="hidden-sched-id" value={{id}}></div>
   </ul>
 </div>
