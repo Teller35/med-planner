@@ -74,6 +74,7 @@ router.get('/edit/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     include: [
       {
+        order: [["date", "ASC"]],
         model: CaregiverSchedule,
         attributes: [
           'id',

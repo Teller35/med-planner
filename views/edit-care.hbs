@@ -62,46 +62,45 @@
 
 </section>
 
-
+{{!-- add a schedule header --}}
 <section>
   <h1 class="p-3 text-center">Add Schedule</h1>
 </section>
 
-
+{{!-- form to add a schedule --}}
 <section>
-  <form class="edit-caregiver-form row round p-3 g-3 text-center">
+  <form class="add-sched-form row round p-3 g-3 text-center">
     <div class="input-group">
       <div class="col-md-4">
-        <span class="fs-3">Date</span><input type="text" class="form-control round text-center fs-5" id="new_date"
-          value="" required>
+        <span class="fs-3">Date</span><input type="date" class="form-control round text-center fs-5" id="new-date" required>
       </div>
       <div class="col-md-4">
-        <span class="fs-3">Start</span><input type="text" class="form-control round text-center fs-5" id="new_start"
-          value="" required>
+        <span class="fs-3">Start</span><input type="time" class="form-control round text-center fs-5" id="new-start" required>
       </div>
       <div class="col-md-4">
-        <span class="fs-3">End</span><input type="text" class="form-control round text-center fs-5" id="new_end"
-          value="" required>
+        <span class="fs-3">End</span><input type="time" class="form-control round text-center fs-5" id="new-end" required>
       </div>
       <div class="col-12">
-        <button class="btn m-3" type="submit">Update</button>
+        <button id="add-sched" class="btn m-3" type="submit">Submit</button>
       </div>
     </div>
   </form>
 
 </section>
 
+{{!-- availability header --}}
 <section>
   <h1 class="p-3 text-center">Your Availability</h1>
 </section>
 
+{{!-- cards for each schedule --}}
 <section class="card-group">
 {{#each caregiver.caregiverschedules}}
   <div class="row row-cols-1 row-cols-md-3 p-1">
     <div class="col-3">
        <div class="card card-round p-1" style="width: 12rem;">
   <div class="card-header fs-3 position-relative">
-   <button type="submit" class="btn">Change</button>
+   <button type="submit" class="btn">Delete</button>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item fs-5">{{date}}</li>
@@ -113,7 +112,7 @@
 </div>
 {{/each}}
 
-
+<div id="hidden-id" value={{caregiver.id}}></div>
 
 <script src="/js/edit-caregiver.js"></script>
 <script src="/js/logout.js"></script>
