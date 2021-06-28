@@ -47,7 +47,8 @@ async function selectAppointmentHandler(event) {
         let caregiver_id = parseInt(window.location.toString().split('/')[
             window.location.toString().split('/').length - 1
         ]);
-        let appointment_time = event.target.parentElement.children[0].textContent;
+        let appointment_time = event.target.parentElement.children[0].textContent.split(" ")[0];
+        console.log(appointment_time);
         let date = document.querySelector("#modal-appointment-date").textContent;
 
         const response = await fetch('/api/appointments/', {
