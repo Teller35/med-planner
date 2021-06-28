@@ -41,25 +41,45 @@
 {{/each}}
 </section>
 
- 
-{{#each caregivers}}
+<div class="schedule-section">
+  {{#each caregivers}}
   <h2 class="text-center p-3">Schedules:</h2>
-<section class="card-group">
-{{#each caregiverschedules}}
-  <div class="row row-cols-1 row-cols-md-3 p-1">
-    <div class="col-3">
-       <div class="card card-round p-1" style="width: 12rem;">
-  <div class="card-header fs-3 position-relative">
-   <button type="submit" class="btn">Schedule</button>
+  <section class="card-group">
+  {{#each caregiverschedules}}
+    <div class="row row-cols-1 row-cols-md-3 p-1">
+      <div class="col-3">
+        <div class="card card-round p-1" style="width: 15rem;">
+          <div class="card-header fs-3 position-relative">
+            <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" schedule-id="{{ id }}">Schedule</button>
+          </div>
+          <ul class="list-group list-group-flush" id="{{ id }}">
+            <li class="list-group-item fs-5">Date: {{date}}</li>
+            <li class="list-group-item fs-5" start-time="{{ start }}">Start: {{start}}</li>
+            <li class="list-group-item fs-5" end-time="{{ end }}">End: {{end}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+  </section>
+  {{/each}}
+</div> 
+
+<!-- appointment hour modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="{{ caregivers.id }}">
+      <div class="modal-header d-flex justify-content-around">
+        <h5 class="modal-title" id="staticBackdropLabel"><span id="modal-appointment-date"></span>  Available Appointments</h5>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item fs-5">Date: {{date}}</li>
-    <li class="list-group-item fs-5">Start: {{start}}</li>
-    <li class="list-group-item fs-5">End: {{end}}</li>
-  </ul>
 </div>
-</div>
-</div>
-{{/each}}
-</section>
-{{/each}}
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.27.0/build/global/luxon.min.js" integrity="sha256-cJnCTPRTD3OUjTD4Ml0WEMsmTiLl71arKaZ9DEZJk0o=" crossorigin="anonymous"></script>
+<script src="/js/appointment.js"></script>
