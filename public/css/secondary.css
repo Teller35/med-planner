@@ -23,6 +23,7 @@ a {
   }
 
   .modal-body {
+    font-size: smaller;
     background-color: white;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
