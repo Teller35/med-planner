@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/css/secondary.css">
 
-<header class="row p-3 border-bottom border-info border-5">
-  <h1 class="col-8">
+<header class="row p-3 center border-bottom border-info border-5">
+  <h1 class="col-6">
     <a href="/">
       Med Planner
     </a>
   </h1>
   {{#each patients as |patient|}}
-  <nav class="col-4">
+  <nav class="col-auto text-center">
       <a class="btn" href="/caregivers">
         Schedule
       </a>
@@ -30,7 +30,7 @@
   <h2 class="text-center p-3">Appointments:</h2>
 <section class="card-group">
 {{#each appointments}}
-  <div class="row row-cols-1 row-cols-md-3 p-1">
+  <div class="row center row-cols-1 row-cols-md-3 p-1">
     <div class="col-3">
        <div class="card card-round p-1" style="width: 25rem;">
   <div class="card-header fs-3 position-relative">

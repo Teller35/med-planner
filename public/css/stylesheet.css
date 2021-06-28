@@ -20,8 +20,9 @@ body {
     background-attachment: fixed;
 }
 
-.form {
-    margin-left: 35%;
+.center {
+    margin: auto;
+    padding: 10px;
 }
 
 .round {
@@ -29,7 +30,14 @@ body {
     box-shadow: 0 0 10px rgba(100,60,60,0.5);
     border-radius: 20px;
     background: var(--secondary-color);
-    background: rgba(235, 228, 228, 0.75);
+    background: rgba(235, 228, 228, 0.90);
+}
+
+.secondary-round {
+    box-shadow: 0 0 10px rgba(100,60,60,0.5);
+    border-radius: 10px;
+    background: var(--secondary-color);
+    background: rgba(235, 228, 228, 0.90);
 }
 
 .card-round {
@@ -49,12 +57,18 @@ a {
     text-decoration: none;
 }
 
-a:hover, .btn:hover {
+a:hover {
 color: var(--tertiary-color);
 }
 
+.btn:hover {
+    color: white;
+}
+
 .btn {
+    width: max-content;
     border: 3px solid black;
+    margin: 4px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 25px;
     background-color: var(--primary-color);
@@ -65,10 +79,8 @@ footer {
     text-align: center;
 }
 
-/* @media screen and (mix-width: 576px) {
-    .form {
-        margin-left: 2%;
-    }
+@media screen and (mix-width: 576px) {
+    
 }
 
 @media (min-width: 768px) {
@@ -77,4 +89,4 @@ footer {
 
 @media (min-width: 992px) {
 
-} */
+}

@@ -1,10 +1,10 @@
-<header class="row p-3 border-bottom border-5">
+<header class="row p-3 center border-bottom border-5">
   <h1 class="col-10">
     <a href="/">
       Med Planner
     </a>
   </h1>
-  <nav class="col-2">
+  <nav class="col-auto text-center">
       <a class="btn" href="/">
         Sign In
       </a>
@@ -16,9 +16,9 @@
 
 
 <div>
-<h2 class="p-3 text-center">Sign up with us today!</h2>
+<h2 class="p-3 text-center secondary-round mt-4">Sign up with us today!</h2>
 
-<form class="signUp-patient row round p-3 g-3">
+<form class="signUp-patient row round mt-4 p-3 g-3">
   <div class="col-md-3">
     <input type="text" class="form-control round" id="firstName-signup" value="" placeholder="First Name" required>
   </div>
@@ -27,7 +27,7 @@
   </div>
   <div class="col-md-2">
     <div class="input-group">
-      <input type="text" class="form-control round" id="birthdate-signup" value="" placeholder="Birthdate" required>
+      <input type="text" onfocus="(this.type='date')" class="form-control round" id="birthdate-signup" value="" placeholder="Birthdate" required>
     </div>
   </div>
   <div class="col-md-3">
@@ -37,7 +37,7 @@
     <input type="text" class="form-control round" id="address-signup" value="" placeholder="Address, City, State, Zip" required>
   </div>
   <div class="col-md-5">
-     <input type="text" class="form-control round" id="email-signup" value="" placeholder="Email" required>
+     <input type="email" class="form-control round" id="email-signup" value="" placeholder="Email" required>
   </div>
   <div class="col-md-5">
      <input type="password" class="form-control round" id="password-signup" value="" placeholder="Password" required>
