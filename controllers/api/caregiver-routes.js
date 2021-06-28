@@ -39,9 +39,8 @@ router.get('/:id', (req, res) => {
                     'id', 
                     'caregiver_id', 
                     'patient_id', 
+                    'date',
                     'appointment_time', 
-                    'caregiver_sched_id', 
-                    'patient_sched_id'
                 ],
                 include: [
                     {

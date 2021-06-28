@@ -16,6 +16,9 @@ a {
     background-color: var(--secondary-color);
     margin: 5% auto 15% auto;
     border: 6px solid rgb(100, 60, 60);
+  }
+  
+  .modal-mine {
     width: 30%;
   }
 
