@@ -6,6 +6,7 @@
 
 - _[View Project on GitHub](https://github.com/Teller35/med-planner)_
 - _[View Project on Heroku](https://med-planner.herokuapp.com/)_
+- _[Presentation](https://docs.google.com/presentation/d/10ukbA8G-AE5-ecBF7NZA1cF10yB1OsyFR7uafcZePq8/edit?usp=sharing)_
 
 ## Table of Contents:
 
