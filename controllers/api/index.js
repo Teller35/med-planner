@@ -6,7 +6,7 @@ const caregiverRoutes = require('./caregiver-routes');
 const patientRoutes = require('./patient-routes');
 const caregiverScheduleRoutes = require('./caregiver-schedule-routes');
 const patientScheduleRoutes = require('./patient-schedule-routes');
-const appointmentRoutes = require('./appointment_routes');
+const appointmentRoutes = require('./appointment-routes');
 
 // assign routes
 router.use('/patients', patientRoutes);
